@@ -3,11 +3,11 @@
 
 À compléter :
 
-- NOM :
-- PRÉNOM :
-- GROUPE :
+- NOM : Hillairet
+- PRÉNOM : Enzo
+- GROUPE : b1
 - URL du site :
-- URL FIGMA :
+- URL FIGMA : https://www.figma.com/design/OLfEZ6qOEbXuK3J89MCKT9/Untitled?node-id=52-220&t=dME3f39M3APws268-1
 
 ## Sujet
 
