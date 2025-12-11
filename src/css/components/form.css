@@ -1,9 +1,11 @@
 .form {
     max-width: 600px;
     margin: 0 auto;
-    background-color: var(--color-surface);
+    /* Fond légèrement plus clair que la page pour détacher le formulaire */
+    background-color: rgba(255, 255, 255, 0.05);
     padding: var(--space-lg);
     border-radius: var(--radius-md);
+    border: 1px solid var(--color-secondary);
 }
 
 .form__group {
@@ -13,26 +15,36 @@
 .form__label {
     display: block;
     margin-bottom: 0.5rem;
+    font-weight: 600;
     color: var(--color-accent);
+    /* Intitulés en couleur Sable */
 }
 
 .form__input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: rgba(255, 255, 255, 0.9);
-    border: none;
+    /* Fond clair pour écrire */
+    border: 2px solid transparent;
     border-radius: var(--radius-sm);
     font-family: inherit;
+    font-size: var(--text-base);
+    color: var(--color-dark);
+    /* Texte noir dans les champs */
 }
 
 .form__input:focus {
-    outline: 2px solid var(--color-accent);
+    outline: none;
+    border-color: var(--color-accent);
+    /* Bordure dorée au focus */
 }
 
 .form__input--textarea {
     resize: vertical;
+    min-height: 150px;
 }
 
 .form__submit-btn {
     width: 100%;
+    margin-top: var(--space-md);
 }
