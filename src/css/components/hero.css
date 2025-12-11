@@ -1,49 +1,53 @@
 /* Fichier : src/css/components/hero.css */
 
 .hero {
-    /* Marge extérieure pour laisser de l'espace au-dessus de l'image (couleur du body) */
-    margin-top: 350px;
+    /* Marge extérieure pour laisser de l'espace au-dessus de l'image */
+    margin-top: 75px;
 
     /* Image de fond */
     background-image: url('../../../assets/images/header.webp');
-    /* Chemin à vérifier */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    /* Hauteur figée pour éviter la déformation */
-    height: 600px;
+    /* Hauteur figée */
+    height: 500px;
     box-sizing: border-box;
 
     /* Centrage du texte */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* Commence en haut du conteneur */
     align-items: center;
     text-align: center;
 
-    /* Pousse le contenu vers le bas dans l'image */
-    padding-top: 200px;
-    /* Ajustez cette valeur pour remonter/descendre le contenu */
+    /* Pousse le contenu vers le bas dans l'image (Ajusté pour le centrage) */
+    padding-top: 450px;
 }
 
 .hero__title {
     font-family: var(--font-titles);
     font-size: 4rem;
-    color: var(--sable);
+    color: var(--noir);
     line-height: 1;
-    margin-top: 50px;
-    /* Descend légèrement le titre */
-    margin-bottom: 10px;
+
+    /* CORRECTION : Remis à zéro pour suivre le padding-top du Hero */
+    margin-top: 0px;
+
+    /* Marge réduite pour coller la date */
+    margin-bottom: 5px;
+
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .hero__date {
     font-family: var(--font-body);
     font-size: 1.8rem;
-    color: var(--beige);
-    margin-top: 0;
-    margin-bottom: 30px;
+    color: var(--noir);
+
+    /* La date colle au titre */
+    margin-top: 0px;
+    margin-bottom: 0px;
+
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }

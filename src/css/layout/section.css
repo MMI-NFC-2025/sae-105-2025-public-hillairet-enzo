@@ -2,7 +2,9 @@
 
 /* 1. CONFIGURATION GÉNÉRALE (Alignement) */
 .section,
-.programmation,
+.programmation{
+        margin-top: 200px; 
+}
 .infos,
 .partners {
     padding-left: 45px;
