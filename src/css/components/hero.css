@@ -1,28 +1,30 @@
 .hero {
-    height: 55vh;
-    /* Hauteur de l'écran */
+    /* 1. POSITION EXTÉRIEURE (L'espace vert au-dessus) */
+    margin-top: 50px;
+
+    /* 2. IMAGE DE FOND */
     background-image: url('/assets/images/header.webp');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+
+    /* 3. TAILLE FIGÉE (C'est le secret pour que ça ne grandisse pas) */
+    height: 600px;
+    /* On impose une hauteur fixe */
+    box-sizing: border-box;
+    /* Le padding sera inclus dans les 600px */
+
+    /* 4. ALIGNEMENT DU CONTENU */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    /* On commence tout en haut */
     align-items: center;
     text-align: center;
-    padding: var(--space-md);
-    margin-top: 80px;
-}
+    color: var(--beige);
 
-.hero__title {
-    font-size: 4rem;
-    margin-bottom: var(--space-sm);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top: 550px;
-    color: #000000;
-}
-
-.hero__date {
-    font-size: 1.5rem;
-    color: var(--color-silver);
-    margin-bottom: var(--space-lg);
+    /* 5. C'EST ICI QUE VOUS DESCENDEZ LE TITRE */
+    /* Comme la hauteur est figée à 600px, ce padding pousse le texte vers le bas
+       SANS agrandir la boîte */
+    padding-top: 200px;
 }

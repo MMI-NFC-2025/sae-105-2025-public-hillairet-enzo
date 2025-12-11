@@ -1,36 +1,34 @@
-/* Fichier : src/css/layout/footer.css */
-
-/* --- 1. LE BLOC PRINCIPAL --- */
 .footer {
     background-color: var(--vert-sapin);
     color: var(--beige);
 
-    /* Espacements internes */
     padding-top: var(--space-xl);
+
+    /* --- MODIFICATION : ON DOUBLE L'ESPACE --- */
     padding-bottom: 200px;
-    /* Grand espace en bas demandé */
+    /* C'était 100px, on passe à 200px */
+
     padding-left: 0;
     padding-right: 0;
 
-    /* Espacements externes */
     margin-top: var(--space-xxl);
     border-top: 5px solid var(--sable);
-
     width: 100%;
     box-sizing: border-box;
 }
 
-/* --- 2. LOGO FESTICLOZE --- */
+/* TITRE FESTICLOZE */
 .footer__logo {
     text-align: center;
+    box-sizing: border-box;
     display: block;
     width: 100%;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-
     margin-top: 40px;
     margin-bottom: 20px;
+    border-bottom: none;
 
     font-family: var(--font-titles);
     font-size: 4rem;
@@ -40,31 +38,29 @@
     text-transform: uppercase;
 }
 
-/* --- 3. GRILLE DE CONTENU (Menu + Contact) --- */
+/* CONTENU (Colonnes Menu / Contact) */
 .footer__content {
     display: grid;
     gap: var(--space-xl);
 
-    /* ALIGNEMENT CAPITAL : 45px comme dans section.css */
-    padding-left: 45px;
+    /* Alignement à gauche avec décalage */
     text-align: left;
+    padding-left: 45px;
+    box-sizing: border-box;
 
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    box-sizing: border-box;
 }
 
-/* Version Ordinateur */
 @media (min-width: 768px) {
     .footer__content {
         grid-template-columns: 1fr 1fr;
-        /* Deux colonnes égales */
         gap: var(--space-4xl);
     }
 }
 
-/* --- 4. SOUS-TITRES ("MENU", "CONTACT") --- */
+/* SOUS-TITRES (Menu, Contact) */
 .footer__subtitle {
     font-family: var(--font-titles);
     font-size: 2rem;
@@ -73,18 +69,20 @@
     line-height: 1.2;
     text-align: left;
     text-transform: uppercase;
+    border-bottom: none;
 }
 
-/* --- 5. LISTES & ESPACEMENTS --- */
+/* --- 1. CONTENEURS DE LISTE (Menu et Contact) --- */
 .footer__list,
 .footer__address {
-    /* Active le mode colonne flexible */
+    /* C'est ICI que l'espacement est géré pour tout le monde */
     display: flex;
     flex-direction: column;
+    /* Empile les éléments */
 
-    /* --- RÉGLAGE DE L'ESPACE ENTRE LES LIGNES --- */
+    /* MODIFIEZ CE CHIFFRE POUR CHANGER L'ÉCART PARTOUT */
     gap: 5px;
-    /* Modifiez ici : 5px (serré), 10px (moyen), 15px (aéré) */
+    /* J'ai mis 15px (plus aéré), remettez 5px si vous préférez serré */
 
     list-style: none;
     padding: 0;
@@ -93,13 +91,15 @@
     font-style: normal;
 }
 
-/* Sécurité pour forcer l'affichage en bloc dans l'adresse */
+/* --- 2. SÉCURITÉ CONTACT --- */
+/* Cette règle force TOUS les éléments dans Contact à respecter l'espacement */
 .footer__address>* {
     display: block;
     margin: 0;
+    /* On laisse le "gap" gérer l'espace */
 }
 
-/* --- 6. STYLE DES TEXTES (Liens et Infos) --- */
+/* --- 3. STYLE DU TEXTE --- */
 .footer__link,
 .footer__address a,
 .footer__address span {
@@ -109,8 +109,9 @@
     text-decoration: none;
     transition: color 0.3s ease;
 
+    /* On force 0 ici car c'est le gap qui gère tout */
     margin-bottom: 0;
-    /* On laisse le "gap" gérer l'espace */
+
     line-height: 1.2;
     display: block;
 }
@@ -121,8 +122,7 @@
     color: var(--sable);
 }
 
-/* --- 7. DÉCALAGE CONTACT --- */
-/* Descend la colonne Contact (le 2ème enfant) par rapport au Menu */
+/* Descend le bloc Contact par rapport au Menu */
 .footer__content> :nth-child(2) {
     margin-top: 40px;
 }

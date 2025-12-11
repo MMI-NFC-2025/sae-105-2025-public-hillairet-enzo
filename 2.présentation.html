@@ -11,7 +11,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lateef:wght@200;300;400;500;600;700;800&family=League+Spartan:wght@100..900&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="src/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/layout/header.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/layout/section.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/layout/carousel.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/layout/footer.css" />
+
     <script src="src/js/script.js" defer></script>
 </head>
 
@@ -26,64 +32,47 @@
 
         <nav class="header__nav nav" id="mainNav" hidden>
             <ul class="nav__list">
-                <li class="nav__item">
-                    <a class="nav__link" href="/1.index.html">ACCUEIL</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link nav__link--active" href="/" aria-current="page">PRÉSENTATION</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="/3.programmation.html">PROGRAMMATION</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="/4.listedesgroupes.html">LISTE DES GROUPES</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="/7.lascene.html">LA SCÈNE</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="/8.infospratiques.html">INFOS PRATIQUES</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="/9.contact.html">CONTACT</a>
-                </li>
+                <li class="nav__item"><a class="nav__link" href="/">ACCUEIL</a></li>
+                <li class="nav__item"><a class="nav__link" href="/2.présentation.html">PRÉSENTATION</a></li>
+                <li class="nav__item"><a class="nav__link" href="/3.programmation.html">PROGRAMMATION</a></li>
+                <li class="nav__item"><a class="nav__link" href="/4.listedesgroupes.html">LISTE DES GROUPES</a></li>
+                <li class="nav__item"><a class="nav__link" href="/7.lascene.html">LA SCÈNE</a></li>
+                <li class="nav__item"><a class="nav__link" href="/8.infospratiques.html">INFOS PRATIQUES</a></li>
+                <li class="nav__item"><a class="nav__link" href="/9.contact.html">CONTACT</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="main-content">
-
-        <section class="section section--intro">
-            <img src="/assets/images/presentation.webp" alt="Ambiance générale du festival Festicloze"
-                class="section__image section__image--hero" />
-
-            <div class="section__content">
-                <h1 class="section__main-title">FESTICLOZE</h1>
-                <h2 class="section__title">Présentation</h2>
-
-                <p class="section__text">
+    
+        <section class="section section--banner">
+            <img src="/assets/images/présentaion.webp" alt="Ambiance générale du festival Festicloze"
+                class="banner__image" />
+        </section>
+    
+        <section class="section">
+    
+            <div class="section__content" style="width: 100%;">
+                <h1 class="infos__title" style="text-align: center;">FESTICLOZE</h1>
+                <h2 class="section__title" style="text-align: center; color: var(--beige);">Présentation</h2>
+    
+                <p class="infos__intro">
                     Le Festicloze a été créé pour mettre en lumière la richesse de l’opéra baroque dans un cadre festif
-                    et patrimonial au Temple Saint-Martin de Montbéliard.
-                </p>
-
-                <p class="section__text">
-                    Son objectif est de faire découvrir ce répertoire au grand public en combinant concerts, danse,
-                    animations et rencontres avec les artistes. Le festival valorise le patrimoine local et propose une
-                    expérience culturelle unique, mêlant musique, histoire et ambiance chaleureuse de Noël.
+                    et patrimonial au Temple Saint-Martin de Montbéliard. [...]
                 </p>
             </div>
-
-            <img src="/assets/images/lieux.webp" alt="Intérieur du Temple Saint-Martin" class="section__image" />
+    
         </section>
 
         <section class="section section--team">
             <div class="section__content">
-                <h2 class="section__title">L'Équipe</h2>
-                <p class="section__text">
+                <h2 class="infos__title">L'ÉQUIPE</h2>
+
+                <p class="infos__intro">
                     Le Festival est organisé par une équipe dédiée qui assure la coordination de l’événement, la
                     programmation artistique et la communication.
                 </p>
-                <p class="section__text">
+                <p class="infos__intro">
                     Une équipe technique professionnelle prend en charge la sonorisation, l’éclairage, la mise en scène
                     et l’accueil du public pour garantir le bon déroulement de chaque représentation. Tous travaillent
                     en étroite collaboration pour offrir une expérience de qualité aux spectateurs.
@@ -92,14 +81,17 @@
             <img src="/assets/images/équipe.webp" alt="L'équipe organisatrice du festival" class="section__image" />
         </section>
 
-        <section class="section section--charter">
+        <section class="section section--charter section--reverse">
+            <img src="/assets/images/lieux.webp" alt="Intérieur du Temple Saint-Martin" class="section__image" />
+
             <div class="section__content">
-                <h2 class="section__title">La Charte</h2>
-                <p class="section__text">
+                <h2 class="infos__title">LA CHARTE</h2>
+
+                <p class="infos__intro">
                     Le festival repose sur des valeurs fortes : le respect du patrimoine, la transmission culturelle et
                     la promotion de la musique baroque auprès de tous les publics.
                 </p>
-                <p class="section__text">
+                <p class="infos__intro">
                     Chaque édition met en avant une thématique spécifique, ici la magie de Noël, afin de créer une
                     atmosphère chaleureuse et festive tout en valorisant les ensembles et les artistes invités.
                     L’événement privilégie également une approche éco-responsable et inclusive, en favorisant les
@@ -112,7 +104,7 @@
 
     <footer class="footer">
         <h2 class="footer__logo">FESTICLOZE</h2>
-
+    
         <div class="footer__content">
             <section class="footer__section">
                 <h3 class="footer__subtitle">Menu</h3>
@@ -124,18 +116,18 @@
                     </ul>
                 </nav>
             </section>
-
+    
             <section class="footer__section">
                 <h3 class="footer__subtitle">Contact</h3>
                 <address class="footer__address">
-                    <a href="mailto:festicloze@gmail.com" class="footer__link">festicloze@gmail.com</a><br>
-                    <a href="tel:+33769198976" class="footer__link">07 69 19 89 76</a><br>
+                    <a href="mailto:festicloze@gmail.com">festicloze@gmail.com</a>
+                    <a href="tel:0769198976">07 69 19 89 76</a>
                     <span>Temple Saint-Martin de Montbéliard 25200</span>
                 </address>
             </section>
         </div>
     </footer>
-
-</body>
-
-</html>
+    
+    </body>
+    
+    </html>
