@@ -1,0 +1,38 @@
+.form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+}
+
+.form__group {
+    margin-bottom: var(--space-md);
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+}
+
+.form__input {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+}
+
+.form__input:focus {
+    outline: 2px solid var(--color-accent);
+}
+
+.form__input--textarea {
+    resize: vertical;
+}
+
+.form__submit-btn {
+    width: 100%;
+}
