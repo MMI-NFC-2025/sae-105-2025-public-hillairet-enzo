@@ -1,27 +1,40 @@
+/* 1. Sur le conteneur .header */
 .header {
-    position: relative;
-    padding: var(--space-md);
-    display: flex;
-    justify-content: flex-end;
-    /* Bouton burger à droite */
-    align-items: center;
-    /* Fond transparent ou léger dégradé si besoin */
+    position: absolute;
+    /* Important : Sort le header du flux pour qu'il soit par-dessus le Hero */
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* On peut enlever flex/justify-content si on positionne le bouton en absolu */
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    padding: 0;
+    /* Plus besoin de padding pour pousser, on gère avec le bouton */
     z-index: 100;
 }
 
-/* Bouton Burger */
+/* 2. Sur le bouton .header__menu-button */
 .header__menu-button {
-    background: transparent;
+    background-color: var(--beige);
     border: none;
     cursor: pointer;
     z-index: 110;
-    /* Au-dessus du menu ouvert */
     width: 40px;
     height: 40px;
+
+    /* POSITIONNEMENT ABSOLU : C'est ici que la magie opère */
+    position: absolute;
+    top: 20px;
+    /* Distance depuis le HAUT de l'écran */
+    right: 40px;
+    /* Distance depuis la DROITE de l'écran */
+
+    /* On enlève les marges qui posaient problème */
+    margin: 0;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 5px;
 }
 
 .header__menu-bar {

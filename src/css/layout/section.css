@@ -1,7 +1,22 @@
+/* Fichier : src/css/layout/section.css */
+
+/* 1. Configuration pour les pages internes (qui utilisent la classe .section) */
 .section {
-    padding: var(--space-2xl) var(--space-md);
+    padding: var(--space-2xl) 20px;
+    /* 20px sur les côtés */
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+}
+
+/* 2. Configuration pour les sections de l'Accueil */
+.programmation,
+.infos,
+.partners {
+    padding: var(--space-2xl) 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* Espacement spécifique pour le contenu texte */
@@ -11,9 +26,10 @@
 
 .section__image {
     border-radius: var(--radius-md);
-    /* Ombre portée subtile */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     margin-bottom: var(--space-lg);
+    width: 100%;
+    object-fit: cover;
 }
 
 /* Mise en page Alternée (Texte / Image) pour desktop */
@@ -22,14 +38,88 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--space-4xl);
-        /* Grand espacement entre colonne */
         align-items: center;
     }
 
-    /* Exception : La section Intro peut prendre toute la largeur si besoin */
     .section--intro .section__header {
         grid-column: 1 / -1;
         text-align: center;
         margin-bottom: var(--space-2xl);
     }
+}
+
+/* --- Styles spécifiques pour la section Infos (Accueil) --- */
+
+/* Titre "Infos pratiques" */
+.infos__title {
+    margin-bottom: var(--space-xs);
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* Paragraphe "Le Festival Baroque de Noël..." */
+.infos__intro {
+    margin-top: 0;
+    text-align: left;
+
+    /* MODIFICATION POLICE ET ESPACEMENTS */
+    font-family: var(--font-body);
+    /* Utilise la police Lateef (ou mettez var(--font-titles) pour League Spartan) */
+    font-size: 1.5rem;
+    /* Texte agrandi */
+    line-height: 1.1;
+    /* Interlignage ajusté */
+}
+
+/* Liste à puces alignée */
+.infos__list {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-position: inside;
+    text-align: left;
+    list-style: none;
+}
+
+/* Sécurité pour forcer l'espacement latéral sur tous les écrans */
+.section,
+.programmation,
+.infos,
+.partners {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box;
+    /* Assure que le padding ne dépasse pas la largeur */
+}
+
+/* Ciblage des éléments de la liste "Infos pratiques" */
+.infos__list .list__item {
+    /* 1. TAILLE DU TEXTE */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+    line-height: 1;
+}
+
+.infos__title,
+.partners__title {
+    font-size: 2rem;
+    margin-bottom: var(--space-xs);
+    line-height: 1.2;
+    text-align: left;
+}
+
+.infos__list,
+.partners__list {
+    padding-left: 0;
+    margin-left: 0;
+    text-align: left;
+    list-style: none;
+}
+.infos__list .list__item,
+.partners__list .list__item {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+    line-height: 1;
 }

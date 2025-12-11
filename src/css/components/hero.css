@@ -1,7 +1,7 @@
 .hero {
-    height: 80vh;
+    height: 55vh;
     /* Hauteur de l'écran */
-    background-image: linear-gradient(rgba(10, 45, 28, 0.7), rgba(10, 45, 28, 0.7)), url('/assets/images/header.webp');
+    background-image: url('/assets/images/header.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -10,13 +10,15 @@
     align-items: center;
     text-align: center;
     padding: var(--space-md);
-    margin-bottom: var(--space-xl);
+    margin-top: 80px;
 }
 
 .hero__title {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: var(--space-sm);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 550px;
+    color: #000000;
 }
 
 .hero__date {
