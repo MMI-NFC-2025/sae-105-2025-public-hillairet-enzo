@@ -4,98 +4,132 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Festicloze</title>
+    <title>Présentation - Festicloze</title>
     <link rel="stylesheet" type="text/css" href="src/css/style.css" />
     <script src="src/js/script.js" defer></script>
 </head>
 
 <body>
-    <header class="header">
 
+    <header class="header">
         <button class="header__menu-button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mainNav">
-            <span class="menu-button__bar" aria-hidden="true"></span>
-            <span class="menu-button__bar" aria-hidden="true"></span>
-            <span class="menu-button__bar" aria-hidden="true"></span>
+            <span class="header__menu-bar" aria-hidden="true"></span>
+            <span class="header__menu-bar" aria-hidden="true"></span>
+            <span class="header__menu-bar" aria-hidden="true"></span>
         </button>
 
-        <nav class="header__menu menu" id="mainNav" hidden>
-            <ul class="menu__list">
-                <li class="menu__item">
-                    <a class="menu__link" href="/1.index.html">Accueil</a>
+        <nav class="header__nav nav" id="mainNav" hidden>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="/1.index.html">ACCUEIL</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/">PRÉSENTAION</a>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="/" aria-current="page">PRÉSENTATION</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/3.programmation.html">PROGRAMMATION</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/3.programmation.html">PROGRAMMATION</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/4.listedesgroupes.html">LISTE DES GROUPES</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/4.listedesgroupes.html">LISTE DES GROUPES</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/7.lascene.html">LA SCENE</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/7.lascene.html">LA SCÈNE</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/8.infospratiques.html">INFOS PRATIQUES</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/8.infospratiques.html">INFOS PRATIQUES</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/9.contact.html">CONTACT</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/9.contact.html">CONTACT</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <div>
-            <img src="/assets/images/présentaion.webp" />
-            <h1>FESTICLOZE</h1>
-            <h2>Présentation:</h2>
-            <p>Le Festicloze a été créé pour mettre en lumière la richesse de l’opéra baroque dans un cadre festif et patrimonial au
-            Temple Saint-Martin de Montbéliard</p>
-            
-            <p>Son objectif est de faire découvrir ce répertoire au grand public en combinant concerts, danse, animations et rencontres
-            avec les artistes. Le festival valorise le patrimoine local et propose une expérience culturelle unique, mêlant musique,
-            histoire et ambiance chaleureuse de Noël.</p>
-            <img src="/assets/images/lieux.webp" />
+    <main class="main-content">
+
+        <section class="section section--intro">
+            <img src="/assets/images/presentation.webp" alt="Ambiance générale du festival Festicloze"
+                class="section__image section__image--hero" />
+
+            <div class="section__content">
+                <h1 class="section__main-title">FESTICLOZE</h1>
+                <h2 class="section__title">Présentation</h2>
+
+                <p class="section__text">
+                    Le Festicloze a été créé pour mettre en lumière la richesse de l’opéra baroque dans un cadre festif
+                    et patrimonial au Temple Saint-Martin de Montbéliard.
+                </p>
+
+                <p class="section__text">
+                    Son objectif est de faire découvrir ce répertoire au grand public en combinant concerts, danse,
+                    animations et rencontres avec les artistes. Le festival valorise le patrimoine local et propose une
+                    expérience culturelle unique, mêlant musique, histoire et ambiance chaleureuse de Noël.
+                </p>
+            </div>
+
+            <img src="/assets/images/lieux.webp" alt="Intérieur du Temple Saint-Martin" class="section__image" />
+        </section>
+
+        <section class="section section--team">
+            <div class="section__content">
+                <h2 class="section__title">L'Équipe</h2>
+                <p class="section__text">
+                    Le Festival est organisé par une équipe dédiée qui assure la coordination de l’événement, la
+                    programmation artistique et la communication.
+                </p>
+                <p class="section__text">
+                    Une équipe technique professionnelle prend en charge la sonorisation, l’éclairage, la mise en scène
+                    et l’accueil du public pour garantir le bon déroulement de chaque représentation. Tous travaillent
+                    en étroite collaboration pour offrir une expérience de qualité aux spectateurs.
+                </p>
+            </div>
+            <img src="/assets/images/équipe.webp" alt="L'équipe organisatrice du festival" class="section__image" />
+        </section>
+
+        <section class="section section--charter">
+            <div class="section__content">
+                <h2 class="section__title">La Charte</h2>
+                <p class="section__text">
+                    Le festival repose sur des valeurs fortes : le respect du patrimoine, la transmission culturelle et
+                    la promotion de la musique baroque auprès de tous les publics.
+                </p>
+                <p class="section__text">
+                    Chaque édition met en avant une thématique spécifique, ici la magie de Noël, afin de créer une
+                    atmosphère chaleureuse et festive tout en valorisant les ensembles et les artistes invités.
+                    L’événement privilégie également une approche éco-responsable et inclusive, en favorisant les
+                    partenariats locaux et en facilitant l’accès à la culture pour tous.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <h2 class="footer__logo">FESTICLOZE</h2>
+
+        <div class="footer__content">
+            <section class="footer__section">
+                <h3 class="footer__subtitle">Menu</h3>
+                <nav class="footer__nav">
+                    <ul class="footer__list">
+                        <li><a href="/2.présentation.html" class="footer__link">Le festival</a></li>
+                        <li><a href="/3.programmation.html" class="footer__link">La programmation</a></li>
+                        <li><a href="/8.infospratiques.html" class="footer__link">Infos pratiques</a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="footer__section">
+                <h3 class="footer__subtitle">Contact</h3>
+                <address class="footer__address">
+                    <a href="mailto:festicloze@gmail.com" class="footer__link">festicloze@gmail.com</a><br>
+                    <a href="tel:+33769198976" class="footer__link">07 69 19 89 76</a><br>
+                    <span>Temple Saint-Martin de Montbéliard 25200</span>
+                </address>
+            </section>
         </div>
+    </footer>
 
-        <div>
-            <h2>Équipe:</h2>
-            <p>Le Festival est organisé par une équipe dédiée qui assure la coordination de l’événement, la programmation artistique et
-            la communication.</p>
-        
-            <p>Une équipe technique professionnelle prend en charge la sonorisation, l’éclairage, la mise en scène et l’accueil du
-            public pour garantir le bon déroulement de chaque représentation. Tous travaillent en étroite collaboration pour offrir
-            une expérience de qualité aux spectateurs.</p>
-            <img src="/assets/images/équipe.webp" />
-        </div>
+</body>
 
-        <div>
-            <h2>Charte:</h2>
-            <p>Le festival repose sur des valeurs fortes : le respect du patrimoine, la transmission culturelle et la promotion de la
-            musique baroque auprès de tous les publics.</p>
-        
-            <p>Chaque édition met en avant une thématique spécifique, ici la magie de Noël, afin de créer une atmosphère chaleureuse et
-            festive tout en valorisant les ensembles et les artistes invités. L’événement privilégie également une approche
-            éco-responsable et inclusive, en favorisant les partenariats locaux et en facilitant l’accès à la culture pour tous.</p>
-        </div>
-
-<footer>
-    <h2>FESTICLOZE</h2>
-
-    <section>
-        <h3>Menu:</h3>
-        <a href="/2.présentation.html">Le festival</a> <br>
-        <a href="/3.programmation.html">La programmation</a> <br>
-        <a href="/8.infospratiques.html">Infos pratiques</a> <br>
-    </section>
-
-    <section>
-        <h3>Contact</h3>
-        <p>
-        festicloze@gmail.com <br>
-        07 69 19 89 76 <br>
-        Temple Saint-Martin de Montbéliard 25200 <br>
-        </p>
-    </section>
-</footer>
+</html>
