@@ -4,122 +4,174 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Festicloze</title>
+    <title>La Scène - Festicloze</title>
     <link rel="stylesheet" type="text/css" href="src/css/style.css" />
     <script src="src/js/script.js" defer></script>
 </head>
 
 <body>
-    <header class="header">
 
+    <header class="header">
         <button class="header__menu-button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mainNav">
-            <span class="menu-button__bar" aria-hidden="true"></span>
-            <span class="menu-button__bar" aria-hidden="true"></span>
-            <span class="menu-button__bar" aria-hidden="true"></span>
+            <span class="header__menu-bar" aria-hidden="true"></span>
+            <span class="header__menu-bar" aria-hidden="true"></span>
+            <span class="header__menu-bar" aria-hidden="true"></span>
         </button>
 
-        <nav class="header__menu menu" id="mainNav" hidden>
-            <ul class="menu__list">
-                <li class="menu__item">
-                    <a class="menu__link" href="/1.index.html">Accueil</a>
+        <nav class="header__nav nav" id="mainNav" hidden>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="/1.index.html">ACCUEIL</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/2.présentation.html">PRÉSENTAION</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/2.présentation.html">PRÉSENTATION</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/3.programmation.html">PROGRAMMATION</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/3.programmation.html">PROGRAMMATION</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/4.listedesgroupes.html">LISTE DES GROUPES</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/4.listedesgroupes.html">LISTE DES GROUPES</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/">LA SCENE</a>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="/" aria-current="page">LA SCÈNE</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/8.infospratiques.html">INFOS PRATIQUES</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/8.infospratiques.html">INFOS PRATIQUES</a>
                 </li>
-                <li class="menu__item">
-                    <a class="menu__link" href="/9.contact.html">CONTACT</a>
+                <li class="nav__item">
+                    <a class="nav__link" href="/9.contact.html">CONTACT</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <div>
-                <h1>La scène:</h1>
-                <h2>LE TEMPLE SAINT MARTIN</h2>
-                <p>Bienvenue sur la page dédiée à la Scène Temple Saint-Martin, un lieu exceptionnel mêlant patrimoine, acoustique unique
-                et concerts intimistes.</p>
+    <main class="main-content">
 
-                <p>Temple Saint-Martin, construit en 1601, est le plus ancien temple protestant de France encore en activité, offrant un
-                cadre historique rare pour vivre la musique autrement.
+        <section class="section venue">
+            <div class="venue__header">
+                <h1 class="venue__main-title">La Scène</h1>
+                <h2 class="venue__subtitle">LE TEMPLE SAINT-MARTIN</h2>
+
+                <p class="venue__description">
+                    Bienvenue sur la page dédiée à la Scène Temple Saint-Martin, un lieu exceptionnel mêlant patrimoine,
+                    acoustique unique et concerts intimistes.
+                </p>
+                <p class="venue__description">
+                    Le Temple Saint-Martin, construit en 1601, est le plus ancien temple protestant de France encore en
+                    activité, offrant un cadre historique rare pour vivre la musique autrement.
                 </p>
             </div>
-            <img src="/assets/images/temple_saint-martinextérieur 1.webp" />
-            <p>Vue extérieur</p>
-            <img src="/assets/images/temple_saint_martin_intérieur1.webp" />
-            <p>Vue intérieur</p>
-                <P>Découvrez les quatre ensembles prestigieux programmés cette année, chacun porteur d’une identité musicale unique et
-                reconnu internationalement pour son excellence dans l’interprétation de la musique Baroque.</P>
-        </section>
 
-        <section>
-        <h3>Giardino Armonico</h3>
-        <li>Fondé à Milan en 1985</li>
-        <li>Spécialité: Baroque italien, Vivaldi, Monteverdi</li>
-        <li>Style: Virtuosité, énergie, sonorité éclatante</li>
-        <li>En concert : Vendredi 20h00</li>
-        <img src="/assets/images/artiste 1.webp" />
-        </section>
+            <div class="venue__gallery">
+                <figure class="venue__figure">
+                    <img src="/assets/images/temple_exterieur.webp" alt="Façade extérieure du Temple Saint-Martin"
+                        class="venue__image" />
+                    <figcaption class="venue__caption">Vue extérieure</figcaption>
+                </figure>
 
-        <section>
-        <h3>Les Arts Florissants</h3>
-        <li>Ensemble fondé par William Christie</li>
-        <li>Spécialité : Lully, Charpentier, musique sacrée et profane française</li>
-        <li>Style : Raffinement, précision, élégance lyrique</li>
-        <li>En concert : Samedi 18h30</li>
-        <img src="/assets/images/artiste 2.webp" />
-        </section>
+                <figure class="venue__figure">
+                    <img src="/assets/images/temple_interieur.webp"
+                        alt="Intérieur du Temple avec ses gradins et l'orgue" class="venue__image" />
+                    <figcaption class="venue__caption">Vue intérieure</figcaption>
+                </figure>
+            </div>
 
-        <section>
-        <h3>Il Seminario Musicale</h3>
-        <li>Ensemble dirigé par Gérard Lesne</li>
-        <li>Spécialité : Monteverdi, Frescobaldi, musique vocale baroque</li>
-        <li>Style : Intime, expressif, sensibilité vocale profonde</li>
-        <li>En concert : Samedi 21h00</li>
-        <img src="/assets/images/artiste 3.webp" />
-        </section>
-
-        <section>
-        <h3>Les Talens Lyriques</h3>
-        <li>Dirigé par Christophe Rousset</li>
-        <li>Spécialité : Händel, Rameau, opéras et oratorios baroques</li>
-        <li>Style : Puissance dramatique, finesse harmonique</li>
-        <li>En concert : Dimanche 17h00</li>
-        <img src="/assets/images/artiste 4.webp" />
-        </section>
-
-        <footer>
-            <h2>FESTICLOZE</h2>
-        
-            <section>
-                <h3>Menu:</h3>
-                <a href="/2.présentation.html">Le festival</a> <br>
-                <a href="/3.programmation.html">La programmation</a> <br>
-                <a href="/8.infospratiques.html">Infos pratiques</a> <br>
-            </section>
-        
-            <section>
-                <h3>Contact</h3>
-                <p>
-                    festicloze@gmail.com <br>
-                    07 69 19 89 76 <br>
-                    Temple Saint-Martin de Montbéliard 25200 <br>
+            <div class="venue__footer">
+                <p class="venue__text">
+                    Découvrez les quatre ensembles prestigieux programmés cette année, chacun porteur d’une identité
+                    musicale unique et reconnu internationalement pour son excellence dans l’interprétation de la
+                    musique Baroque.
                 </p>
+            </div>
+        </section>
+
+        <section class="section section--artists">
+            <div class="artists-grid">
+
+                <article class="artist-card">
+                    <img src="/assets/images/artiste 1.webp" alt="Il Giardino Armonico" class="artist-card__image" />
+                    <div class="artist-card__content">
+                        <h3 class="artist-card__title">Giardino Armonico</h3>
+                        <ul class="artist-card__list">
+                            <li><strong>Fondé :</strong> à Milan en 1985</li>
+                            <li><strong>Spécialité :</strong> Baroque italien, Vivaldi, Monteverdi</li>
+                            <li><strong>Style :</strong> Virtuosité, énergie, sonorité éclatante</li>
+                            <li><strong>En concert :</strong> Vendredi 20h00</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="artist-card">
+                    <img src="/assets/images/artiste 2.webp" alt="Les Arts Florissants" class="artist-card__image" />
+                    <div class="artist-card__content">
+                        <h3 class="artist-card__title">Les Arts Florissants</h3>
+                        <ul class="artist-card__list">
+                            <li><strong>Ensemble :</strong> fondé par William Christie</li>
+                            <li><strong>Spécialité :</strong> Lully, Charpentier, musique sacrée et profane française
+                            </li>
+                            <li><strong>Style :</strong> Raffinement, précision, élégance lyrique</li>
+                            <li><strong>En concert :</strong> Samedi 18h30</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="artist-card">
+                    <img src="/assets/images/artiste 3.webp" alt="Il Seminario Musicale" class="artist-card__image" />
+                    <div class="artist-card__content">
+                        <h3 class="artist-card__title">Il Seminario Musicale</h3>
+                        <ul class="artist-card__list">
+                            <li><strong>Ensemble :</strong> dirigé par Gérard Lesne</li>
+                            <li><strong>Spécialité :</strong> Monteverdi, Frescobaldi, musique vocale baroque</li>
+                            <li><strong>Style :</strong> Intime, expressif, sensibilité vocale profonde</li>
+                            <li><strong>En concert :</strong> Samedi 21h00</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="artist-card">
+                    <img src="/assets/images/artiste 4.webp" alt="Les Talens Lyriques" class="artist-card__image" />
+                    <div class="artist-card__content">
+                        <h3 class="artist-card__title">Les Talens Lyriques</h3>
+                        <ul class="artist-card__list">
+                            <li><strong>Dirigé par :</strong> Christophe Rousset</li>
+                            <li><strong>Spécialité :</strong> Händel, Rameau, opéras et oratorios baroques</li>
+                            <li><strong>Style :</strong> Puissance dramatique, finesse harmonique</li>
+                            <li><strong>En concert :</strong> Dimanche 17h00</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <h2 class="footer__logo">FESTICLOZE</h2>
+
+        <div class="footer__content">
+            <section class="footer__section">
+                <h3 class="footer__subtitle">Menu</h3>
+                <nav class="footer__nav">
+                    <ul class="footer__list">
+                        <li><a href="/2.présentation.html" class="footer__link">Le festival</a></li>
+                        <li><a href="/3.programmation.html" class="footer__link">La programmation</a></li>
+                        <li><a href="/8.infospratiques.html" class="footer__link">Infos pratiques</a></li>
+                    </ul>
+                </nav>
             </section>
-        </footer>
 
+            <section class="footer__section">
+                <h3 class="footer__subtitle">Contact</h3>
+                <address class="footer__address">
+                    <a href="mailto:festicloze@gmail.com" class="footer__link">festicloze@gmail.com</a><br>
+                    <a href="tel:+33769198976" class="footer__link">07 69 19 89 76</a><br>
+                    <span>Temple Saint-Martin de Montbéliard 25200</span>
+                </address>
+            </section>
+        </div>
+    </footer>
 
-        
+</body>
+
+</html>
