@@ -1,0 +1,24 @@
+/* =========================================
+   POINT D'ENTRÉE CSS (Architecture Modulaire)
+   ========================================= */
+
+/* 1. VENDORS - Bibliothèques tierces */
+@import "vendors/normalize.css";
+
+/* 2. UTILS - Variables et configuration */
+@import "utils/variables.css";
+
+/* 3. BASE - Styles globaux et resets */
+@import "base/main.css";
+
+/* 4. LAYOUT - Structure de la page */
+@import "layout/header.css";
+@import "layout/footer.css";
+@import "layout/section.css";
+
+/* 5. COMPONENTS - Modules réutilisables */
+@import "components/button.css";
+@import "components/hero.css";
+@import "components/card.css";
+@import "components/form.css";
+@import "components/list.css";
