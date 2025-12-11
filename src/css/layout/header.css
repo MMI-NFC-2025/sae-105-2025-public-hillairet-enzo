@@ -1,35 +1,31 @@
-/* 1. Sur le conteneur .header */
+/* Fichier : src/css/layout/header.css */
+
+/* 1. HEADER (Conteneur principal) */
 .header {
     position: absolute;
-    /* Important : Sort le header du flux pour qu'il soit par-dessus le Hero */
+    /* Par-dessus le Hero */
     width: 100%;
     top: 0;
     left: 0;
-    /* On peut enlever flex/justify-content si on positionne le bouton en absolu */
-    /* display: flex; */
-    /* justify-content: flex-end; */
-    padding: 0;
-    /* Plus besoin de padding pour pousser, on gère avec le bouton */
     z-index: 100;
 }
 
-/* 2. Sur le bouton .header__menu-button */
+/* 2. BOUTON HAMBURGER (Mobile) */
 .header__menu-button {
-    background-color: var(--beige);
+    background-color: transparent;
+    /* Fond transparent pour voir l'image derrière */
     border: none;
     cursor: pointer;
     z-index: 110;
+    /* Toujours au-dessus du menu */
     width: 40px;
     height: 40px;
 
-    /* POSITIONNEMENT ABSOLU : C'est ici que la magie opère */
+    /* Positionnement */
     position: absolute;
     top: 20px;
-    /* Distance depuis le HAUT de l'écran */
     right: 40px;
-    /* Distance depuis la DROITE de l'écran */
 
-    /* On enlève les marges qui posaient problème */
     margin: 0;
     padding: 5px;
     display: flex;
@@ -37,69 +33,121 @@
     justify-content: space-around;
 }
 
+/* Les 3 barres */
 .header__menu-bar {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: var(--color-text);
+    background-color: var(--sable);
+    /* DORÉ */
     border-radius: 2px;
-    transition: transform var(--transition-medium), opacity var(--transition-medium);
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Animation Burger (Croix) quand aria-expanded="true" */
+/* Animation CROIX quand le menu est ouvert */
 .header__menu-button[aria-expanded="true"] .header__menu-bar:nth-child(1) {
     transform: translateY(11px) rotate(45deg);
 }
 
 .header__menu-button[aria-expanded="true"] .header__menu-bar:nth-child(2) {
     opacity: 0;
+    /* La barre du milieu disparaît */
 }
 
 .header__menu-button[aria-expanded="true"] .header__menu-bar:nth-child(3) {
     transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Navigation (Menu plein écran) */
+/* 3. MENU DE NAVIGATION (Mobile : Plein écran) */
 .nav {
     position: fixed;
     inset: 0;
-    /* top:0, right:0, bottom:0, left:0 */
-    background-color: var(--color-bg);
-    /* Fond vert foncé */
+    /* Prend tout l'écran */
+    background-color: var(--vert-sapin);
+    /* FOND VERT */
+
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform var(--transition-medium);
+
     z-index: 105;
+    /* Juste en dessous du bouton */
+    transition: opacity 0.3s ease;
+    /* Animation douce */
 }
 
-/* État caché du menu */
+/* État caché */
 .nav[hidden] {
     display: none;
-    /* Ou transform: translateX(100%); pour une animation de glissement */
 }
 
-/* Pour faire une animation fluide avec JS (optionnel si tu utilises hidden) */
-/* Si ton script enlève l'attribut hidden, on peut styliser */
-
+/* Liste des liens */
 .nav__list {
     list-style: none;
     padding: 0;
+    margin: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Espace entre les liens sur mobile */
 }
 
-.nav__item {
-    margin-bottom: var(--space-md);
-}
-
+/* Style des liens */
 .nav__link {
-    font-size: 1.5rem;
+    font-family: var(--font-titles);
+    /* League Spartan */
+    font-size: 2rem;
     font-weight: bold;
-    color: var(--color-text);
+    color: var(--beige);
+    text-decoration: none;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
-.nav__link--active {
-    color: var(--color-accent);
-    border-bottom: 2px solid var(--color-accent);
+.nav__link:hover {
+    color: var(--sable);
+    /* Doré au survol */
+}
+
+/* 4. VERSION ORDINATEUR (Desktop > 1024px) */
+/* C'est ce bloc qui manquait pour afficher le menu horizontalement sur PC */
+@media (min-width: 1024px) {
+
+    /* On cache le bouton hamburger */
+    .header__menu-button {
+        display: none;
+    }
+
+    /* On réinitialise le menu pour qu'il ne soit plus plein écran */
+    .nav {
+        position: relative;
+        /* Revient dans le flux normal */
+        inset: auto;
+        background-color: transparent;
+        /* Fond transparent */
+        display: block;
+        height: auto;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: flex-end;
+        /* Aligne le menu à droite */
+    }
+
+    /* On force l'affichage même si l'attribut "hidden" est là */
+    .nav[hidden] {
+        display: flex;
+    }
+
+    /* Liste horizontale */
+    .nav__list {
+        flex-direction: row;
+        /* Liens côte à côte */
+        gap: 40px;
+    }
+
+    .nav__link {
+        font-size: 1.2rem;
+        /* Taille plus petite sur PC */
+    }
 }

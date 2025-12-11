@@ -16,9 +16,56 @@
 @import "layout/footer.css";
 @import "layout/section.css";
 
+/* --- AJOUT DU CARROUSEL --- */
+@import "layout/carousel.css";
+
 /* 5. COMPONENTS - Modules réutilisables */
 @import "components/button.css";
 @import "components/hero.css";
-@import "components/card.css";
+
+/* J'ai désactivé card.css car le style des cartes est maintenant géré 
+   dans layout/carousel.css pour éviter les conflits */
+/* @import "components/card.css"; */
+
 @import "components/form.css";
 @import "components/list.css";
+
+
+/* =========================================
+   VARIABLES DE SÉCURITÉ
+   (S'assure que les couleurs existent même si utils/variables.css est vide)
+   ========================================= */
+:root {
+    /* Couleurs de la charte */
+    --vert-sapin: #082823;
+    --sable: #C6A664;
+    --beige: #F4EBD9;
+    --gris: #333333;
+
+    /* Polices */
+    --font-titles: 'League Spartan', sans-serif;
+    --font-body: 'Lateef', serif;
+
+    /* Espacements standard */
+    --space-xs: 10px;
+    --space-md: 20px;
+    --space-xl: 40px;
+    --space-xxl: 80px;
+    --space-2xl: 100px;
+    --space-4xl: 150px;
+
+    /* Arrondis */
+    --radius-md: 8px;
+}
+
+/* Reset de base pour la couleur de fond */
+body {
+    background-color: var(--beige);
+    color: var(--vert-sapin);
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}

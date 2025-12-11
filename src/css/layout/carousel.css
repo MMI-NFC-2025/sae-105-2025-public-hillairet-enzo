@@ -1,0 +1,187 @@
+/* Fichier : src/css/layout/carousel.css */
+
+/* --- 1. LE CONTENEUR PRINCIPAL --- */
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Espace entre les boutons et les cartes */
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* --- 2. LA PISTE DE DÉFILEMENT (TRACK) --- */
+.carousel__track {
+    display: flex;
+    gap: 30px;
+    /* Espace entre chaque carte */
+
+    /* Active le défilement horizontal */
+    overflow-x: auto;
+
+    /* Effet magnétique : la carte se cale pile au milieu quand on arrête de scroller */
+    scroll-snap-type: x mandatory;
+
+    padding-bottom: 20px;
+    /* Espace pour l'ombre du bas */
+    width: 100%;
+
+    /* Comportement fluide */
+    scroll-behavior: smooth;
+
+    /* Cache la barre de défilement (Firefox) */
+    scrollbar-width: none;
+}
+
+/* Cache la barre de défilement (Chrome, Safari, Edge) */
+.carousel__track::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- 3. LES BOUTONS (FLÈCHES) --- */
+.carousel__btn {
+    background-color: var(--sable);
+    /* Couleur dorée */
+    color: var(--vert-sapin);
+    /* Flèche verte */
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* Bouton rond */
+    cursor: pointer;
+    font-size: 1.5rem;
+
+    /* Centre la flèche dans le rond */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Empêche le bouton de s'écraser */
+    flex-shrink: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carousel__btn:hover {
+    background-color: var(--beige);
+    /* Devient beige au survol */
+    transform: scale(1.1);
+    /* Grossit légèrement */
+}
+
+/* --- 4. LES CARTES (CARD) --- */
+.card {
+    /* Largeur fixe pour une carte */
+    flex: 0 0 300px;
+
+    /* Point d'ancrage magnétique */
+    scroll-snap-align: center;
+
+    background-color: var(--beige);
+    /* Fond de la carte */
+    border-radius: 10px;
+    overflow: hidden;
+    /* Coupe ce qui dépasse (images) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* La carte monte un peu au survol */
+}
+
+/* Lien qui englobe toute la carte */
+.card__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+/* --- 5. IMAGES & TAGS --- */
+.card__image-container {
+    position: relative;
+    height: 200px;
+    /* Hauteur de l'image */
+    width: 100%;
+}
+
+.card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* L'image remplit la zone sans se déformer */
+}
+
+/* Le petit badge "J1", "J2"... */
+.card__tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--sable);
+    color: var(--vert-sapin);
+    font-family: var(--font-titles);
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 5px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* --- 6. TEXTE DE LA CARTE --- */
+.card__content {
+    padding: 20px;
+    text-align: left;
+}
+
+.card__date {
+    font-family: var(--font-titles);
+    color: var(--vert-sapin);
+    font-size: 1.4rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card__title {
+    font-family: var(--font-body);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222;
+    /* Texte sombre pour bien lire sur le beige */
+    margin: 8px 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.card__place {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    color: #555;
+    /* Gris foncé */
+    margin: 0;
+    font-style: italic;
+}
+
+/* --- 7. MOBILE (RESPONSIVE) --- */
+@media (max-width: 768px) {
+
+    /* On cache les boutons sur mobile (on utilise le swipe du doigt) */
+    .carousel__btn {
+        display: none;
+    }
+
+    /* La carte prend plus de place sur petit écran (85% de la largeur) */
+    .card {
+        flex: 0 0 85%;
+    }
+
+    /* On réduit un peu l'espacement */
+    .carousel__track {
+        gap: 15px;
+    }
+}

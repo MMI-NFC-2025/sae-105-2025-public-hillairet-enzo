@@ -1,27 +1,63 @@
+/* Fichier : src/js/script.js */
+
+// On attend que toute la page soit chargée avant de lancer le script
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Sélection des éléments
+
+    /* ============================================================
+       1. GESTION DU MENU MOBILE (HAMBURGER)
+       ============================================================ */
     const menuButton = document.querySelector('.header__menu-button');
     const nav = document.getElementById('mainNav');
 
-    // 2. Écoute du clic
-    menuButton.addEventListener('click', () => {
-        // Est-ce que le menu est déjà ouvert ?
-        const isOpened = menuButton.getAttribute('aria-expanded') === 'true';
+    // On vérifie que les éléments existent sur la page (sécurité)
+    if (menuButton && nav) {
 
-        if (isOpened) {
-            // SI OUVERT -> ON FERME
-            menuButton.setAttribute('aria-expanded', 'false');
-            nav.setAttribute('hidden', ''); // On remet l'attribut hidden pour cacher
+        menuButton.addEventListener('click', () => {
+            // On regarde si le menu est déjà ouvert
+            const isOpened = menuButton.getAttribute('aria-expanded') === 'true';
 
-            // On empêche le scroll de la page derrière
-            document.body.style.overflow = 'auto';
-        } else {
-            // SI FERMÉ -> ON OUVRE
-            menuButton.setAttribute('aria-expanded', 'true');
-            nav.removeAttribute('hidden'); // On enlève hidden pour afficher
+            if (isOpened) {
+                // --- ACTION : FERMER LE MENU ---
+                menuButton.setAttribute('aria-expanded', 'false'); // L'icône redevient des barres
+                nav.setAttribute('hidden', ''); // On cache le menu
+                document.body.style.overflow = ''; // On réactive le scroll de la page
+            } else {
+                // --- ACTION : OUVRIR LE MENU ---
+                menuButton.setAttribute('aria-expanded', 'true'); // L'icône devient une croix
+                nav.removeAttribute('hidden'); // On affiche le menu
+                document.body.style.overflow = 'hidden'; // On bloque le scroll arrière-plan
+            }
+        });
+    }
 
-            // On bloque le scroll de la page derrière
-            document.body.style.overflow = 'hidden';
-        }
-    });
+    /* ============================================================
+       2. GESTION DU CARROUSEL (PROGRAMMATION)
+       ============================================================ */
+    const track = document.getElementById('track');
+    const btnPrev = document.querySelector('.carousel__btn--prev');
+    const btnNext = document.querySelector('.carousel__btn--next');
+
+    // On vérifie que le carrousel existe bien sur la page actuelle
+    if (track && btnPrev && btnNext) {
+
+        // Distance de défilement (Largeur carte 300px + Gap 30px = 330px)
+        const scrollAmount = 330;
+
+        // Clic sur le bouton SUIVANT (Flèche Droite)
+        btnNext.addEventListener('click', () => {
+            track.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth' // Défilement fluide
+            });
+        });
+
+        // Clic sur le bouton PRÉCÉDENT (Flèche Gauche)
+        btnPrev.addEventListener('click', () => {
+            track.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    }
+
 });
