@@ -1,13 +1,35 @@
 /* Fichier : src/css/layout/section.css */
 
-/* ... TOUT VOTRE CODE DE 1, 2, 4, et les règles simples SANS @media... */
+/* 1. CONFIGURATION GÉNÉRALE (Alignement) */
+.section,
+.programmation,
+.infos,
+.partners {
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-/* =========================================
-   MISE EN PAGE DESKTOP (Ordinateur - FUSIONNÉE)
-   ========================================= */
+/* 2. CONTENU TEXTE & IMAGES */
+.section__content {
+    margin-bottom: var(--space-xl);
+}
+
+.section__image {
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    margin-bottom: var(--space-lg);
+    width: 100%;
+    object-fit: cover;
+}
+
+/* 3. DESKTOP */
 @media (min-width: 768px) {
-
-    /* Règle de la grille standard (Texte Gauche / Image Droite) */
     .section {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -15,52 +37,128 @@
         align-items: center;
     }
 
-    /* Règle pour les sections qui couvrent toute la largeur (comme Intro) */
     .section--intro .section__header {
         grid-column: 1 / -1;
         text-align: center;
         margin-bottom: var(--space-2xl);
     }
-
-    /* --- INVERSION DE MISE EN PAGE (section--reverse) --- */
-    .section--reverse {
-        /* 1. On utilise grid-template-areas pour définir l'ordre: Image (gauche) puis Contenu (droite) */
-        grid-template-areas: "image content";
-    }
-
-    .section--reverse .section__image {
-        grid-area: image;
-        /* L'image va dans la zone 'image' (colonne de gauche) */
-    }
-
-    .section--reverse .section__content {
-        grid-area: content;
-        /* Le contenu va dans la zone 'content' (colonne de droite) */
-    }
 }
 
-.section--banner {
-    max-width: none !important;
-    padding: 0 !important;
+/* ============================================================
+   4. STYLES UNIFIÉS (INFOS PRATIQUES & PARTENAIRES)
+   C'est ici que l'on force l'identité parfaite.
+   ============================================================ */
 
-    /* --- AUGMENTEZ CETTE VALEUR POUR DESCENDRE L'IMAGE --- */
-    margin-top: 75px;
-    
-
-}
-
+/* A. LES TITRES */
 .infos__title,
-    .partners__title,
-    .programmation__title {
-        font-family: var(--font-titles);
-        font-size: 4.5rem;
-        line-height: 1.2;
-        text-align: left;
-        color: var(--noir);
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
+.partners__title {
+    font-family: var(--font-titles);
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: left;
 
-.section .section__content h1.infos__title {
-    margin-top: 25px !important;
-    }
+    /* ESPACEMENT DU HAUT (Même distance pour les deux) */
+    margin-top: 0;
+
+    /* ESPACEMENT DU BAS (Entre le titre et le texte en dessous) */
+    /* Modifiez ce chiffre : cela s'appliquera aux DEUX sections */
+    margin-bottom: 15px;
+}
+
+/* B. LES LISTES (Le conteneur) */
+.infos__list,
+.partners__list {
+    padding-left: 0;
+    margin-left: 0;
+    text-align: left;
+    list-style: none;
+
+    /* Si vous voulez coller la liste au titre, mettez margin-top: 0 ici aussi */
+    margin-top: 0;
+}
+
+/* C. LES LIGNES DE TEXTE (Items) */
+.infos__list .list__item,
+.partners__list .list__item {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    /* Interlignage standard */
+
+    /* Espace entre chaque ligne de la liste */
+    margin-bottom: 5px;
+
+    display: block;
+}
+
+/* D. PARAGRAPHE D'INTRO (Spécifique Infos) */
+/* Si "Infos Pratiques" a un petit paragraphe avant la liste, on le règle ici */
+.infos__intro {
+    margin-top: 0;
+    margin-bottom: 15px;
+    /* Espace avant la liste */
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+/* ============================================================
+   RÉGLAGES MANUELS DES ESPACEMENTS (Infos & Partenaires)
+   ============================================================ */
+
+/* 1. ESPACEMENT SOUS LE TITRE */
+.infos__title,
+.partners__title {
+    font-family: var(--font-titles);
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: left;
+    margin-top: 0;
+
+    /* --- [A] DISTANCE ENTRE LE TITRE ET LE TEXTE --- */
+    margin-bottom: 5px;
+    /* Augmentez pour éloigner le titre (ex: 30px) */
+    /* Diminuez pour coller le titre (ex: 10px) */
+}
+
+/* 2. ESPACEMENT ENTRE LES LIGNES DE LA LISTE */
+.infos__list .list__item,
+.partners__list .list__item {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    display: block;
+
+    /* --- [B] HAUTEUR DE LA LIGNE ELLE-MÊME (Densité du texte) --- */
+    line-height: 1.2;
+    /* 1.0 = très serré (risque de touche-touche) */
+    /* 1.2 = standard confortable */
+    /* 1.5 = aéré */
+
+    /* --- [C] MARGE SOUS CHAQUE LIGNE (Écart entre les items) --- */
+    margin-bottom: 5px;
+    /* 5px  = liste serrée */
+    /* 15px = liste très aérée */
+}
+
+/* 3. PARAGRAPHE D'INTRO (Seulement pour Infos) */
+.infos__intro {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-align: left;
+    margin-top: 0;
+
+    /* --- [D] ESPACE SOUS L'INTRO (Avant la liste) --- */
+    margin-bottom: 5px;
+}
+
+/* 4. CONTENEUR DE LISTE (Ne pas toucher généralement) */
+.infos__list,
+.partners__list {
+    padding-left: 0;
+    margin-left: 0;
+    text-align: left;
+    list-style: none;
+    margin-top: 0;
+}

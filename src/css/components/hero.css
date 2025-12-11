@@ -1,30 +1,49 @@
-.hero {
-    /* 1. POSITION EXTÉRIEURE (L'espace vert au-dessus) */
-    margin-top: 50px;
+/* Fichier : src/css/components/hero.css */
 
-    /* 2. IMAGE DE FOND */
-    background-image: url('/assets/images/header.webp');
+.hero {
+    /* Marge extérieure pour laisser de l'espace au-dessus de l'image (couleur du body) */
+    margin-top: 350px;
+
+    /* Image de fond */
+    background-image: url('../../../assets/images/header.webp');
+    /* Chemin à vérifier */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    /* 3. TAILLE FIGÉE (C'est le secret pour que ça ne grandisse pas) */
+    /* Hauteur figée pour éviter la déformation */
     height: 600px;
-    /* On impose une hauteur fixe */
     box-sizing: border-box;
-    /* Le padding sera inclus dans les 600px */
 
-    /* 4. ALIGNEMENT DU CONTENU */
+    /* Centrage du texte */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* On commence tout en haut */
+    /* Commence en haut du conteneur */
     align-items: center;
     text-align: center;
-    color: var(--beige);
 
-    /* 5. C'EST ICI QUE VOUS DESCENDEZ LE TITRE */
-    /* Comme la hauteur est figée à 600px, ce padding pousse le texte vers le bas
-       SANS agrandir la boîte */
+    /* Pousse le contenu vers le bas dans l'image */
     padding-top: 200px;
+    /* Ajustez cette valeur pour remonter/descendre le contenu */
+}
+
+.hero__title {
+    font-family: var(--font-titles);
+    font-size: 4rem;
+    color: var(--sable);
+    line-height: 1;
+    margin-top: 50px;
+    /* Descend légèrement le titre */
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero__date {
+    font-family: var(--font-body);
+    font-size: 1.8rem;
+    color: var(--beige);
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
