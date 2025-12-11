@@ -1,0 +1,128 @@
+.footer {
+    background-color: var(--vert-sapin);
+    color: var(--beige);
+
+    padding-top: var(--space-xl);
+
+    /* --- MODIFICATION : ON DOUBLE L'ESPACE --- */
+    padding-bottom: 200px;
+    /* C'était 100px, on passe à 200px */
+
+    padding-left: 0;
+    padding-right: 0;
+
+    margin-top: var(--space-xxl);
+    border-top: 5px solid var(--sable);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* TITRE FESTICLOZE */
+.footer__logo {
+    text-align: center;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: none;
+
+    font-family: var(--font-titles);
+    font-size: 4rem;
+    line-height: 1.2;
+    color: var(--sable);
+    letter-spacing: 0em;
+    text-transform: uppercase;
+}
+
+/* CONTENU (Colonnes Menu / Contact) */
+.footer__content {
+    display: grid;
+    gap: var(--space-xl);
+
+    /* Alignement à gauche avec décalage */
+    text-align: left;
+    padding-left: 45px;
+    box-sizing: border-box;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .footer__content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4xl);
+    }
+}
+
+/* SOUS-TITRES (Menu, Contact) */
+.footer__subtitle {
+    font-family: var(--font-titles);
+    font-size: 2rem;
+    color: var(--sable);
+    margin-bottom: var(--space-xs);
+    line-height: 1.2;
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: none;
+}
+
+/* --- 1. CONTENEURS DE LISTE (Menu et Contact) --- */
+.footer__list,
+.footer__address {
+    /* C'est ICI que l'espacement est géré pour tout le monde */
+    display: flex;
+    flex-direction: column;
+    /* Empile les éléments */
+
+    /* MODIFIEZ CE CHIFFRE POUR CHANGER L'ÉCART PARTOUT */
+    gap: 5px;
+    /* J'ai mis 15px (plus aéré), remettez 5px si vous préférez serré */
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-style: normal;
+}
+
+/* --- 2. SÉCURITÉ CONTACT --- */
+/* Cette règle force TOUS les éléments dans Contact à respecter l'espacement */
+.footer__address>* {
+    display: block;
+    margin: 0;
+    /* On laisse le "gap" gérer l'espace */
+}
+
+/* --- 3. STYLE DU TEXTE --- */
+.footer__link,
+.footer__address a,
+.footer__address span {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    color: var(--beige);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    /* On force 0 ici car c'est le gap qui gère tout */
+    margin-bottom: 0;
+
+    line-height: 1.2;
+    display: block;
+}
+
+/* Effet au survol */
+.footer__link:hover,
+.footer__address a:hover {
+    color: var(--sable);
+}
+
+/* Descend le bloc Contact par rapport au Menu */
+.footer__content> :nth-child(2) {
+    margin-top: 40px;
+}
