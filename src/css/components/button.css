@@ -1,0 +1,37 @@
+.button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    /* Texte foncé sur fond doré */
+    padding: 12px 24px;
+    border-radius: 50px;
+    /* Boutons très arrondis comme sur maquette */
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid var(--color-accent);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+
+/* Variante secondaire (contour seul) */
+.button--secondary {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+
+.button--secondary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
+/* Bouton CTA (Call to Action) */
+.button--cta {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+}

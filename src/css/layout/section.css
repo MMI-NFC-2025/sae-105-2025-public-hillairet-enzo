@@ -1,0 +1,34 @@
+.section {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Espacement spécifique pour le contenu texte */
+.section__content {
+    margin-bottom: var(--space-lg);
+}
+
+.section__image {
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: var(--space-md);
+}
+
+/* Mise en page Alternée (Texte / Image) pour desktop */
+@media (min-width: 768px) {
+    .section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+        align-items: center;
+    }
+
+    /* Pour l'intro, on veut l'image en pleine largeur parfois ? 
+     Sinon la grille s'applique */
+    .section--intro .section__header {
+        grid-column: 1 / -1;
+        /* Prend toute la largeur */
+        text-align: center;
+    }
+}

@@ -1,0 +1,26 @@
+.hero {
+    height: 80vh;
+    /* Hauteur de l'écran */
+    background-image: linear-gradient(rgba(10, 45, 28, 0.7), rgba(10, 45, 28, 0.7)), url('/assets/images/header.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.hero__title {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero__date {
+    font-size: 1.5rem;
+    color: var(--color-silver);
+    margin-bottom: var(--space-lg);
+}
