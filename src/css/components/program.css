@@ -3,7 +3,7 @@
 /* Titre principal de la section (Programme) */
 .section__main-title {
     font-family: var(--font-titles);
-    font-size: 3rem;
+    font-size: 2.5rem;
     /* mobile size */
     font-weight: 800;
     color: var(--noir);
@@ -94,7 +94,7 @@
     }
 
     .section__main-title {
-        font-size: 8rem;
+        font-size: 5rem;
         margin-top: 60px;
     }
 

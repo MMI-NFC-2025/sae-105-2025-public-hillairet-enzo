@@ -63,63 +63,80 @@
         <section class="programmation section">
             <h3 class="programmation__title visually-hidden">Programmation par jour</h3>
 
-            <div class="programmation__grid">
-                <article class="card">
-                    <a href="/5.artiste1.html" class="card__link">
-                        <h4 class="card__day">J1 - VENDREDI 20/12</h4>
-                        <img src="/assets/images/artiste 1.webp" alt="L'ensemble Il Giardino Armonico en concert"
-                            class="card__image" />
-                        <h4 class="card__artist-name">IL GIARDINO ARMONICO</h4>
-                        <p class="card__description">
-                            <strong>Aux origines de l’opéra...</strong><br>
-                            Soirée d’ouverture consacrée à la naissance de l’opéra baroque : récitatifs expressifs,
-                            continuo, instruments anciens et l’univers poétique du mythe d’Orphée.
-                        </p>
-                    </a>
-                </article>
+            <div class="carousel" data-carousel>
+                <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Voir le concert précédent"
+                    data-carousel-prev>
+                    <span aria-hidden="true">&#10094;</span>
+                </button>
 
-                <article class="card">
-                    <a href="/6.artiste2.html" class="card__link">
-                        <h4 class="card__day">J2 - SAMEDI 21/12</h4>
-                        <img src="/assets/images/artiste 2.webp" alt="Les Arts Florissants sur scène"
-                            class="card__image" />
-                        <h4 class="card__artist-name">LES ARTS FLORISSANTS</h4>
-                        <p class="card__description">
-                            <strong>Sous le règne du Roi-Soleil...</strong><br>
-                            Une soirée Versailles : faste, danse, tragédie lyrique, puissance du chœur et esthétique
-                            française influencée par les ballets de cour de Louis XIV.
-                        </p>
-                    </a>
-                </article>
+                <div class="carousel__panel">
+                    <div class="carousel__track programmation__grid" data-carousel-track>
+                        <article class="card">
+                            <a href="/5.artiste1.html" class="card__link">
+                                <h4 class="card__day">J1 - VENDREDI 20/12</h4>
+                                <img src="/assets/images/artiste 1.webp"
+                                    alt="L'ensemble Il Giardino Armonico en concert" class="card__image" />
+                                <h4 class="card__artist-name">IL GIARDINO ARMONICO</h4>
+                                <p class="card__description">
+                                    <strong>Aux origines de l’opéra...</strong><br>
+                                    Soirée d’ouverture consacrée à la naissance de l’opéra baroque : récitatifs
+                                    expressifs,
+                                    continuo, instruments anciens et l’univers poétique du mythe d’Orphée.
+                                </p>
+                            </a>
+                        </article>
 
-                <article class="card">
-                    <a href="/artiste3.html" class="card__link">
-                        <h4 class="card__day">J3 - DIMANCHE 22/12</h4>
-                        <img src="/assets/images/artiste 3.webp" alt="Christophe Rousset dirigeant Les Talens Lyriques"
-                            class="card__image" />
-                        <h4 class="card__artist-name">LES TALENTS LYRIQUES</h4>
-                        <p class="card__description">
-                            <strong>Passions et virtuosité...</strong><br>
-                            Sommet de l’opéra seria italien : airs da capo, virtuosité vocale, rôle de contreténor,
-                            drame politique et passion amoureuse.
-                        </p>
-                    </a>
-                </article>
+                        <article class="card">
+                            <a href="/6.artiste2.html" class="card__link">
+                                <h4 class="card__day">J2 - SAMEDI 21/12</h4>
+                                <img src="/assets/images/artiste 2.webp" alt="Les Arts Florissants sur scène"
+                                    class="card__image" />
+                                <h4 class="card__artist-name">LES ARTS FLORISSANTS</h4>
+                                <p class="card__description">
+                                    <strong>Sous le règne du Roi-Soleil...</strong><br>
+                                    Une soirée Versailles : faste, danse, tragédie lyrique, puissance du chœur et
+                                    esthétique
+                                    française influencée par les ballets de cour de Louis XIV.
+                                </p>
+                            </a>
+                        </article>
 
-                <article class="card">
-                    <a href="/artiste4.html" class="card__link">
-                        <h4 class="card__day">J4 - LUNDI 23/12</h4>
-                        <img src="/assets/images/artiste 4.webp" alt="L'ensemble Il Seminario Musicale"
-                            class="card__image" />
-                        <h4 class="card__artist-name">IL SEMINARIO MUSICALE</h4>
-                        <p class="card__description">
-                            <strong>La fête baroque de Noël...</strong><br>
-                            Une soirée festive et lumineuse, mêlant éclat du spectacle baroque français tardif et
-                            musique sacrée de Noël.
-                        </p>
-                    </a>
-                </article>
+                        <article class="card">
+                            <a href="/artiste3.html" class="card__link">
+                                <h4 class="card__day">J3 - DIMANCHE 22/12</h4>
+                                <img src="/assets/images/artiste 3.webp"
+                                    alt="Christophe Rousset dirigeant Les Talens Lyriques" class="card__image" />
+                                <h4 class="card__artist-name">LES TALENTS LYRIQUES</h4>
+                                <p class="card__description">
+                                    <strong>Passions et virtuosité...</strong><br>
+                                    Sommet de l’opéra seria italien : airs da capo, virtuosité vocale, rôle de
+                                    contreténor,
+                                    drame politique et passion amoureuse.
+                                </p>
+                            </a>
+                        </article>
 
+                        <article class="card">
+                            <a href="/artiste4.html" class="card__link">
+                                <h4 class="card__day">J4 - LUNDI 23/12</h4>
+                                <img src="/assets/images/artiste 4.webp" alt="L'ensemble Il Seminario Musicale"
+                                    class="card__image" />
+                                <h4 class="card__artist-name">IL SEMINARIO MUSICALE</h4>
+                                <p class="card__description">
+                                    <strong>La fête baroque de Noël...</strong><br>
+                                    Une soirée festive et lumineuse, mêlant éclat du spectacle baroque français tardif
+                                    et
+                                    musique sacrée de Noël.
+                                </p>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+
+                <button class="carousel__btn carousel__btn--next" type="button" aria-label="Voir le concert suivant"
+                    data-carousel-next>
+                    <span aria-hidden="true">&#10095;</span>
+                </button>
             </div>
         </section>
 

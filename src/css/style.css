@@ -15,6 +15,7 @@
 @import "layout/header.css";
 @import "layout/footer.css";
 @import "layout/section.css";
+@import "layout/carousel.css";
 
 /* 5. COMPONENTS - Modules réutilisables */
 @import "components/button.css";
@@ -25,6 +26,7 @@
 @import "components/error.css";
 @import "components/presentation.css";
 @import "components/program.css";
+@import "components/artist.css";
 
 .button {
     display: inline-block;
