@@ -1,82 +1,68 @@
-// Fichier : src/js/script.js
+// Fichier : src/js/script.js (Assurez-vous que ce code est bien dans votre script)
 
 document.addEventListener('DOMContentLoaded', function () {
-    const menuButton = document.querySelector('.header__menu-button');
-    const mainNav = document.querySelector('.header__nav');
-    const navLinks = document.querySelectorAll('.nav__list a');
+    // ... (Votre code existant pour le menu hamburger) ...
 
-    if (menuButton && mainNav) {
+    // ===============================================
+    // 2. GESTION DU CARROUSEL DE PROGRAMMATION
+    // (Utilise les sélecteurs data-* de votre HTML)
+    // ===============================================
 
-        // --- Fonction pour basculer l'état du menu ---
-        function toggleMenu() {
-            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-            const newState = !isExpanded; // L'état cible (ouvert si false, fermé si true)
+    const carousels = document.querySelectorAll('[data-carousel]');
 
-            // 1. Gère l'état du bouton (croix)
-            menuButton.setAttribute('aria-expanded', newState);
+    carousels.forEach(carousel => {
+        // Sélection des éléments spécifiques à ce carrousel
+        const track = carousel.querySelector('[data-carousel-track]');
+        // Utilisation des sélecteurs d'attribut pour les boutons Précédent/Suivant
+        const prevButton = carousel.querySelector('[data-carousel-prev]');
+        const nextButton = carousel.querySelector('[data-carousel-next]');
 
-            // 2. Gère la visibilité du menu (via CSS opacité/visibilité)
-            // L'attribut hidden est utilisé dans votre HTML pour l'état initial
-            mainNav.toggleAttribute('hidden', !newState);
-            // met à jour aria-hidden pour les lecteurs d'écran
-            mainNav.setAttribute('aria-hidden', String(!newState));
-
-            // La visibilité/opacité est contrôlée par [aria-hidden="false"] ou [aria-expanded="true"] en CSS
-            // On s'assure de synchroniser le body pour le défilement
-            document.body.classList.toggle('no-scroll', newState);
+        if (!track) {
+            return; // Sortir si la piste de défilement n'est pas trouvée
         }
 
-        // Ferme le menu si on clique hors du nav (utile pour mobile)
-        document.addEventListener('click', function (e) {
-            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-            if (!isOpen) return;
-
-            const clickInsideNav = mainNav.contains(e.target);
-            const clickOnButton = menuButton.contains(e.target);
-
-            if (!clickInsideNav && !clickOnButton) {
-                // fermer le menu
-                menuButton.setAttribute('aria-expanded', false);
-                mainNav.setAttribute('hidden', true);
-                mainNav.setAttribute('aria-hidden', true);
-                document.body.classList.remove('no-scroll');
+        /**
+         * Calcule le décalage nécessaire pour défiler d'une carte (slide) à l'autre.
+         * Prend en compte la largeur de la carte PLUS l'espace (gap) entre les cartes.
+         * @returns {number} La distance à défiler.
+         */
+        function getScrollOffset() {
+            // Utilise la classe '.card' pour trouver la taille d'un élément
+            const firstSlide = track.querySelector('.card'); 
+            if (!firstSlide) {
+                return track.clientWidth;
             }
-        });
 
-        // Fermer le menu avec la touche Escape
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' || e.key === 'Esc') {
-                const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-                if (isOpen) {
-                    menuButton.setAttribute('aria-expanded', false);
-                    mainNav.setAttribute('hidden', true);
-                    mainNav.setAttribute('aria-hidden', true);
-                    document.body.classList.remove('no-scroll');
-                    menuButton.focus();
-                }
-            }
-        });
+            const slideWidth = firstSlide.getBoundingClientRect().width; 
+            
+            // Récupère la valeur du 'gap' (espace) défini dans le CSS
+            const gapValue = getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0';
+            const gap = parseFloat(gapValue) || 0;
+            
+            return slideWidth + gap;
+        }
 
-        // 1. Écouteur pour le bouton Hamburger (Ouverture/Fermeture)
-        menuButton.addEventListener('click', toggleMenu);
+        /**
+         * Déclenche le défilement de la piste.
+         * @param {number} direction - -1 pour gauche, 1 pour droite.
+         */
+        function scrollTrack(direction) {
+            const offset = getScrollOffset();
+            // Utilise la méthode native scrollBy pour un défilement fluide
+            track.scrollBy({ left: direction * offset, behavior: 'smooth' });
+        }
 
-        // 2. Écouteur pour les liens (Fermeture après navigation)
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                // Vérifie si le menu est actuellement ouvert
-                if (menuButton.getAttribute('aria-expanded') === 'true') {
-                    // Ferme le menu immédiatement après le clic sur le lien.
-                    // On ne passe pas par toggleMenu pour éviter la boucle.
+        // Écouteur pour le bouton précédent
+        if (prevButton) {
+            prevButton.addEventListener('click', () => scrollTrack(-1));
+        }
 
-                    menuButton.setAttribute('aria-expanded', false);
-                    mainNav.setAttribute('aria-hidden', true); // Assure l'opacité 0
-                    mainNav.setAttribute('hidden', true); // Assure la dissimulation
-                    document.body.classList.remove('no-scroll');
+        // Écouteur pour le bouton suivant
+        if (nextButton) {
+            nextButton.addEventListener('click', () => scrollTrack(1));
+        }
+    });
 
-                    // NOTE: Le navigateur va ensuite naviguer vers le nouveau lien/page.
-                }
-            });
-        });
-
-    }
+    // ... (Votre code pour le bouton retour en haut, etc.) ...
 });
+

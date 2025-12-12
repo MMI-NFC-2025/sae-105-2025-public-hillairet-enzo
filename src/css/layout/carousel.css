@@ -1,187 +1,111 @@
 /* Fichier : src/css/layout/carousel.css */
 
-/* --- 1. LE CONTENEUR PRINCIPAL --- */
 .carousel {
     position: relative;
+    /* Conteneur pour positionner les boutons */
+    margin: 40px auto;
+    max-width: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 20px;
-    /* Espace entre les boutons et les cartes */
-    margin-top: 20px;
-    width: 100%;
+    padding: 0 20px;
 }
 
-/* --- 2. LA PISTE DE DÉFILEMENT (TRACK) --- */
+/* Le panel permet de masquer ce qui dépasse de la piste (pour les effets visuels) */
+.carousel__panel {
+    overflow: hidden;
+    flex: 1;
+    /* Cache les cartes qui débordent */
+}
+
+/* La Piste (Celle qui défile : contient les cartes) */
 .carousel__track {
-    display: flex;
+    /* Style par défaut (Desktop) : Grille classique */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 colonnes pour desktop */
     gap: 30px;
-    /* Espace entre chaque carte */
+    /* Espace entre les cartes */
+    padding: 0 40px;
+    /* Padding latéral pour les côtés du carrousel */
 
-    /* Active le défilement horizontal */
-    overflow-x: auto;
+    /* Active le défilement horizontal sur mobile */
+    @media (max-width: 768px) {
+        display: flex;
+        /* Passage en flex pour le défilement horizontal */
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        gap: 16px;
+        /* Espace entre les cartes sur mobile (doit correspondre au JS) */
+        padding: 0 40px;
 
-    /* Effet magnétique : la carte se cale pile au milieu quand on arrête de scroller */
-    scroll-snap-type: x mandatory;
-
-    padding-bottom: 20px;
-    /* Espace pour l'ombre du bas */
-    width: 100%;
-
-    /* Comportement fluide */
-    scroll-behavior: smooth;
-
-    /* Cache la barre de défilement (Firefox) */
-    scrollbar-width: none;
+        /* Cache la barre de défilement native */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
 }
 
-/* Cache la barre de défilement (Chrome, Safari, Edge) */
 .carousel__track::-webkit-scrollbar {
     display: none;
 }
 
-/* --- 3. LES BOUTONS (FLÈCHES) --- */
-.carousel__btn {
-    background-color: var(--sable);
-    /* Couleur dorée */
-    color: var(--vert-sapin);
-    /* Flèche verte */
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    /* Bouton rond */
-    cursor: pointer;
-    font-size: 1.5rem;
-
-    /* Centre la flèche dans le rond */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /* Empêche le bouton de s'écraser */
-    flex-shrink: 0;
-    z-index: 10;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.carousel__btn:hover {
-    background-color: var(--beige);
-    /* Devient beige au survol */
-    transform: scale(1.1);
-    /* Grossit légèrement */
-}
-
-/* --- 4. LES CARTES (CARD) --- */
-.card {
-    /* Largeur fixe pour une carte */
-    flex: 0 0 300px;
-
-    /* Point d'ancrage magnétique */
+/* Cartes artistes plus grandes */
+.carousel__track .artist-card {
+    flex: 0 0 clamp(500px, 95vw, 800px);
     scroll-snap-align: center;
-
-    background-color: var(--beige);
-    /* Fond de la carte */
-    border-radius: 10px;
-    overflow: hidden;
-    /* Coupe ce qui dépasse (images) */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-
-    transition: transform 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    /* La carte monte un peu au survol */
-}
 
-/* Lien qui englobe toute la carte */
-.card__link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    height: 100%;
-}
-
-/* --- 5. IMAGES & TAGS --- */
-.card__image-container {
-    position: relative;
-    height: 200px;
-    /* Hauteur de l'image */
-    width: 100%;
-}
-
-.card__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* L'image remplit la zone sans se déformer */
-}
-
-/* Le petit badge "J1", "J2"... */
-.card__tag {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: var(--sable);
-    color: var(--vert-sapin);
-    font-family: var(--font-titles);
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding: 5px 12px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-/* --- 6. TEXTE DE LA CARTE --- */
-.card__content {
-    padding: 20px;
-    text-align: left;
-}
-
-.card__date {
-    font-family: var(--font-titles);
-    color: var(--vert-sapin);
-    font-size: 1.4rem;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.card__title {
-    font-family: var(--font-body);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #222;
-    /* Texte sombre pour bien lire sur le beige */
-    margin: 8px 0;
-    line-height: 1.1;
-    text-transform: uppercase;
-}
-
-.card__place {
-    font-family: var(--font-body);
-    font-size: 1.3rem;
-    color: #555;
-    /* Gris foncé */
-    margin: 0;
-    font-style: italic;
-}
-
-/* --- 7. MOBILE (RESPONSIVE) --- */
+/* Style des cartes dans le carrousel mobile */
 @media (max-width: 768px) {
+    .carousel__track .card {
+        flex-shrink: 0;
+        /* Empêche la carte de se réduire */
 
-    /* On cache les boutons sur mobile (on utilise le swipe du doigt) */
-    .carousel__btn {
-        display: none;
-    }
+        /* --- CORRECTION CLÉ : 100% de largeur pour une seule carte --- */
+        width: 100%;
+        max-width: none;
+        /* Retrait de la restriction max-width */
 
-    /* La carte prend plus de place sur petit écran (85% de la largeur) */
-    .card {
-        flex: 0 0 85%;
+        /* AJOUT: S'assurer que le défilement s'arrête exactement sur la carte */
+        scroll-snap-align: start;
     }
+}
 
-    /* On réduit un peu l'espacement */
-    .carousel__track {
-        gap: 15px;
+
+/* BOUTONS DE NAVIGATION */
+.carousel__btn {
+    display: none;
+    /* Caché par défaut sur grand écran */
+
+    /* Affichage et positionnement sur mobile/tablette */
+    @media (max-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+
+        /* Style du bouton */
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--sable);
+        color: var(--noir);
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        font-size: 1.5rem;
     }
+}
+
+.carousel__btn--prev {
+    left: 5px;
+}
+
+.carousel__btn--next {
+    right: 5px;
 }
