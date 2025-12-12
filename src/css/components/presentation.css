@@ -1,0 +1,127 @@
+/* Fichier : src/css/components/presentation.css */
+
+/* =========================================
+   SECTION PRÉSENTATION - HERO IMAGE
+   ========================================= */
+
+.section-presentation {
+    width: 100%;
+    margin: 0;
+    margin-top: 70px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.presentation__hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* =========================================
+   SECTION PRÉSENTATION - CONTENU
+   ========================================= */
+
+.section-presentation__content {
+    padding: 60px 45px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+.presentation__container {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* TITRE PRINCIPAL */
+.presentation__title {
+    font-family: var(--font-titles);
+    font-size: 8rem;
+    font-weight: 800;
+    color: var(--noir);
+    margin: 0 0 10px 0;
+    line-height: 1;
+    letter-spacing: 0;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* SOUS-TITRE */
+.presentation__subtitle {
+    font-family: var(--font-titles);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--noir);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* BLOC DE TEXTE */
+.presentation__text-block {
+    width: 100%;
+}
+
+.presentation__text {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    color: var(--gris-texte);
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    text-align: left;
+}
+
+.presentation__text:last-child {
+    margin-bottom: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .section-presentation__content {
+        padding: 40px 25px;
+    }
+
+    .presentation__title {
+        font-size: 3rem;
+    }
+
+    .presentation__subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+
+    .presentation__text {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-presentation__content {
+        padding: 30px 20px;
+    }
+
+    .presentation__title {
+        font-size: 2.5rem;
+    }
+
+    .presentation__subtitle {
+        font-size: 1.3rem;
+    }
+
+    .presentation__text {
+        font-size: 1.1rem;
+        text-align: left;
+    }
+}

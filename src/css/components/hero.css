@@ -51,3 +51,9 @@
 
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
+
+.hero--secondary {
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+}

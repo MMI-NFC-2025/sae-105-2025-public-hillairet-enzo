@@ -22,14 +22,9 @@
 @import "components/card.css";
 @import "components/form.css";
 @import "components/list.css";
-
-/* Fichier : src/css/style.css */
-
-/* ... (Vos autres imports de composants) ... */
-@import "components/form.css";
-@import "components/list.css";
 @import "components/error.css";
-/* <-- AJOUTER ICI */
+@import "components/presentation.css";
+@import "components/program.css";
 
 .button {
     display: inline-block;

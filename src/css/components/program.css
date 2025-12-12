@@ -1,0 +1,104 @@
+/* Fichier : src/css/components/program.css */
+
+/* Titre principal de la section (Programme) */
+.section__main-title {
+    font-family: var(--font-titles);
+    font-size: 3rem;
+    /* mobile size */
+    font-weight: 800;
+    color: var(--noir);
+    margin: 30px 0 10px 0;
+    line-height: 1;
+    letter-spacing: 0;
+    /* align with content padding (same as presentation) */
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Grille des événements (mobile first: colonne unique) */
+.program__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.event {
+    background: transparent;
+}
+
+.event__title {
+    font-family: var(--font-titles);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.event__details {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.event__item {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+/* Mise en forme du bouton de téléchargement (style large, pill) */
+.button--download {
+    display: inline-block;
+    max-width: 680px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 30px auto;
+    padding: 22px 56px;
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: var(--sable);
+    color: var(--noir);
+    border: 3px solid var(--noir);
+    border-radius: 40px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06) inset, 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button--download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Centrer le bouton dans son section parent */
+.download-section {
+    display: flex;
+    justify-content: center;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+/* Responsive desktop: deux colonnes si assez large */
+@media (min-width: 768px) {
+    .program__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .section__main-title {
+        font-size: 8rem;
+        margin-top: 60px;
+    }
+
+    .event__item {
+        font-size: 1.2rem;
+    }
+}

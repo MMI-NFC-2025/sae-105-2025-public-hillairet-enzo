@@ -1,21 +1,29 @@
-/* Styles globaux */
+/* Fichier : src/css/base/main.css */
+
+/* =========================================
+   RESET ET BOX-MODEL
+   ========================================= */
 * {
     box-sizing: border-box;
 }
 
+/* =========================================
+   STYLE DU BODY & TYPOGRAPHIE GLOBALE
+   ========================================= */
 body {
     margin: 0;
     font-family: var(--font-body);
-    /* Utilise Lateef par défaut */
-    font-size: var(--text-base);
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    line-height: 1.4;
-    /* Lateef supporte bien une ligne un peu plus serrée */
+    font-size: 1rem;
+    /* Base size */
+    background-color: var(--beige);
+    /* Utilise la variable de fond */
+    color: var(--gris-texte);
+    /* Utilise la variable de texte sombre */
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Titres - Utilisation de League Spartan */
+/* Titres - Utilisation de la police League Spartan (définie dans variables.css) */
 h1,
 h2,
 h3,
@@ -23,51 +31,34 @@ h4,
 h5,
 h6 {
     font-family: var(--font-titles);
-    /* Utilise League Spartan */
     margin-top: 0;
     font-weight: 700;
     line-height: 1.1;
-    color: var(--color-text);
+    color: var(--gris-texte);
     text-transform: uppercase;
-    /* Souvent joli avec League Spartan */
     letter-spacing: -0.02em;
 }
 
+/* Styles spécifiques des niveaux de titres */
 h1 {
-    font-size: var(--text-5xl);
-    color: var(--color-accent);
+    /* Ajustez la taille selon vos variables si nécessaire */
+    color: var(--noir);
+    font-size: 4rem;
+    text-align: center;
     margin-bottom: var(--space-4xl);
 }
 
-h2 {
-    font-size: var(--text-3xl);
-    color: var(--color-text);
-    border-bottom: 2px solid var(--color-secondary);
-    display: inline-block;
-    padding-bottom: var(--space-md);
-    margin-bottom: var(--space-5xl);
-}
-
-h3 {
-    font-size: var(--text-xl);
-    color: var(--color-accent);
-    margin-bottom: var(--space-md);
-}
-
-/* Boutons - On préfère souvent la police titre pour les boutons pour la lisibilité */
-button,
-.button,
-.nav__link {
-    font-family: var(--font-titles);
-}
-
 p {
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-lg);
+    /* Espace sous les paragraphes */
     max-width: 65ch;
-    font-size: 1.3rem;
-    /* Ajustement spécifique si Lateef est trop petite */
+    font-size: 1.1rem;
+    /* Taille de police standard pour le corps */
 }
 
+/* =========================================
+   LIENS & IMAGES
+   ========================================= */
 a {
     color: inherit;
     text-decoration: none;
@@ -75,7 +66,8 @@ a {
 }
 
 a:hover {
-    color: var(--color-accent);
+    color: var(--sable);
+    /* Couleur dorée au survol */
 }
 
 img {
@@ -84,6 +76,9 @@ img {
     display: block;
 }
 
+/* =========================================
+   ACCESSIBILITÉ
+   ========================================= */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -95,10 +90,8 @@ img {
     border: 0;
 }
 
-.main-content {
-    /* AJOUT CRITIQUE : Pousser tout le contenu de la page vers le bas pour dégager le Header. */
-    padding-top: 75px;
-    padding-bottom: 50px;
-    min-height: 100vh;
-}
 
+/* Empêche le défilement du body quand le menu est ouvert (via JS) */
+.no-scroll {
+    overflow: hidden;
+}

@@ -18,11 +18,44 @@ document.addEventListener('DOMContentLoaded', function () {
             // 2. Gère la visibilité du menu (via CSS opacité/visibilité)
             // L'attribut hidden est utilisé dans votre HTML pour l'état initial
             mainNav.toggleAttribute('hidden', !newState);
+            // met à jour aria-hidden pour les lecteurs d'écran
+            mainNav.setAttribute('aria-hidden', String(!newState));
 
             // La visibilité/opacité est contrôlée par [aria-hidden="false"] ou [aria-expanded="true"] en CSS
             // On s'assure de synchroniser le body pour le défilement
             document.body.classList.toggle('no-scroll', newState);
         }
+
+        // Ferme le menu si on clique hors du nav (utile pour mobile)
+        document.addEventListener('click', function (e) {
+            const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+            if (!isOpen) return;
+
+            const clickInsideNav = mainNav.contains(e.target);
+            const clickOnButton = menuButton.contains(e.target);
+
+            if (!clickInsideNav && !clickOnButton) {
+                // fermer le menu
+                menuButton.setAttribute('aria-expanded', false);
+                mainNav.setAttribute('hidden', true);
+                mainNav.setAttribute('aria-hidden', true);
+                document.body.classList.remove('no-scroll');
+            }
+        });
+
+        // Fermer le menu avec la touche Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc') {
+                const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+                if (isOpen) {
+                    menuButton.setAttribute('aria-expanded', false);
+                    mainNav.setAttribute('hidden', true);
+                    mainNav.setAttribute('aria-hidden', true);
+                    document.body.classList.remove('no-scroll');
+                    menuButton.focus();
+                }
+            }
+        });
 
         // 1. Écouteur pour le bouton Hamburger (Ouverture/Fermeture)
         menuButton.addEventListener('click', toggleMenu);

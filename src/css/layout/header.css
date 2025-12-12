@@ -1,6 +1,3 @@
-/* Fichier : src/css/layout/header.css */
-
-/* === 1. Sur le conteneur .header === */
 .header {
     position: absolute;
     width: 100%;
@@ -18,7 +15,7 @@
 
 /* === 2. Sur le bouton .header__menu-button === */
 .header__menu-button {
-    background-color: var(--beige);
+    background-color: transparent;
     border: none;
     cursor: pointer;
     z-index: 110;
@@ -63,7 +60,8 @@
 .header__nav {
     position: fixed;
     inset: 0;
-    background-color: var(--gris-texte);
+    /* Fond sombre pour le menu (assure contraste avec les liens clairs) */
+    background-color: var(--vert-sapin);
     /* Fond sombre du menu */
 
     display: flex;
