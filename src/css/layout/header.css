@@ -1,19 +1,22 @@
-/* 1. Sur le conteneur .header */
+/* Fichier : src/css/layout/header.css */
+
+/* === 1. Sur le conteneur .header === */
 .header {
     position: absolute;
-    /* Important : Sort le header du flux pour qu'il soit par-dessus le Hero */
     width: 100%;
     top: 0;
     left: 0;
-    /* On peut enlever flex/justify-content si on positionne le bouton en absolu */
-    /* display: flex; */
-    /* justify-content: flex-end; */
     padding: 0;
-    /* Plus besoin de padding pour pousser, on gère avec le bouton */
     z-index: 100;
+
+    /* 1. AJOUT : Fond clair pour que la barre de démarcation soit visible */
+    background-color: var(--gris-clair-fond);
+
+    /* 2. AJOUT : Barre horizontale noire de démarcation */
+    border-bottom: 1px solid var(--noir);
 }
 
-/* 2. Sur le bouton .header__menu-button */
+/* === 2. Sur le bouton .header__menu-button === */
 .header__menu-button {
     background-color: var(--beige);
     border: none;
@@ -22,14 +25,10 @@
     width: 40px;
     height: 40px;
 
-    /* POSITIONNEMENT ABSOLU : C'est ici que la magie opère */
     position: absolute;
     top: 20px;
-    /* Distance depuis le HAUT de l'écran */
     right: 40px;
-    /* Distance depuis la DROITE de l'écran */
 
-    /* On enlève les marges qui posaient problème */
     margin: 0;
     padding: 5px;
     display: flex;
@@ -41,7 +40,8 @@
     display: block;
     width: 100%;
     height: 3px;
-    background-color: var(--color-text);
+    /* CORRECTION : Utilisation de --noir pour la barre, car --color-text est souvent pour le texte du body qui est clair */
+    background-color: var(--noir);
     border-radius: 2px;
     transition: transform var(--transition-medium), opacity var(--transition-medium);
 }
@@ -59,28 +59,56 @@
     transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Navigation (Menu plein écran) */
-.nav {
+/* === Navigation (Menu plein écran) === */
+.header__nav {
     position: fixed;
     inset: 0;
-    /* top:0, right:0, bottom:0, left:0 */
-    background-color: var(--color-bg);
-    /* Fond vert foncé */
+    background-color: var(--gris-texte);
+    /* Fond sombre du menu */
+
     display: flex;
-    justify-content: center;
+    /* 3. CORRECTION : Empiler les éléments verticalement */
+    flex-direction: column;
+
+    /* 4. CORRECTION : Aligner le contenu en haut (Titre + Liste) */
+    justify-content: flex-start;
+
+    /* Centre le contenu horizontalement */
     align-items: center;
-    transition: transform var(--transition-medium);
+
+    /* 5. AJOUT : Marge pour décaler le titre du haut de l'écran */
+    padding-top: 100px;
+
+    /* Gestion de l'état caché par JS (méthode de l'opacité/visibilité) */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-medium), visibility var(--transition-medium);
     z-index: 105;
 }
 
-/* État caché du menu */
-.nav[hidden] {
-    display: none;
-    /* Ou transform: translateX(100%); pour une animation de glissement */
+/* Affichage du menu */
+.header__nav[hidden] {
+    display: flex;
+    /* Override pour l'animation */
 }
 
-/* Pour faire une animation fluide avec JS (optionnel si tu utilises hidden) */
-/* Si ton script enlève l'attribut hidden, on peut styliser */
+.header__nav[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.nav__title {
+    font-family: var(--font-titles);
+    font-size: 5rem;
+    color: var(--sable);
+    text-align: center;
+
+    /* Pour séparer le titre de la liste de liens */
+    margin-bottom: var(--space-4xl);
+    margin-top: 0;
+    /* Important pour coller au padding-top du .header__nav */
+}
 
 .nav__list {
     list-style: none;
@@ -95,11 +123,29 @@
 .nav__link {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--color-text);
+    color: var(--beige);
+    /* Texte clair sur fond sombre */
     text-transform: uppercase;
 }
 
 .nav__link--active {
-    color: var(--color-accent);
-    border-bottom: 2px solid var(--color-accent);
+    color: var(--sable);
+    border-bottom: 2px solid var(--sable);
+}
+
+.header__nav {
+    /* ... (toutes les règles de positionnement, flexbox, opacity: 0, etc.) ... */
+}
+
+/* ⚠️ PLACEZ LA RÈGLE ICI (ou à la fin du fichier) */
+/* C'est l'override qui permet à l'animation opacity/visibility de fonctionner même avec l'attribut hidden */
+.header__nav[hidden] {
+    display: flex;
+}
+
+
+/* Affichage du menu ouvert (visibilité) */
+.header__nav[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
 }

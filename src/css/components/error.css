@@ -1,0 +1,60 @@
+/* Fichier : src/css/components/error.css */
+
+.error-page {
+    /* -------------------------------------
+       CENTRE LE CONTENU VERTICALEMENT SUR LA PAGE
+       ------------------------------------- */
+    display: flex;
+    flex-direction: column;
+    /* Empile les éléments verticalement */
+    justify-content: center;
+    /* Centre verticalement les éléments */
+    align-items: center;
+    /* Centre horizontalement les éléments */
+
+    /* Fixe la hauteur pour qu'elle corresponde à la zone visible de la page (moins le header et le footer) */
+    /* Assurez-vous que main-content n'est pas limité en hauteur */
+    min-height: calc(100vh - 200px);
+    /* 100vh moins la hauteur du header et du footer estimés */
+
+    text-align: center;
+    padding: 0 30px;
+    /* Padding latéral pour mobile */
+
+    /* Limite la largeur du contenu d'erreur pour qu'il soit plus lisible */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-page__title {
+    font-family: var(--font-titles);
+    font-size: 20rem;
+    color: var(--noir);
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.error-page__subtitle {
+    font-size: 6rem;
+    color: var(--noir);
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.error-page__message {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+}
+
+.button--secondary {
+    background-color: transparent !important;
+    border: 2px solid var(--noir);
+    color: var(--noir) !important;
+    box-shadow: none;
+    margin-left: var(--space-md);
+}
+
+.button--secondary:hover {
+    background-color: var(--noir) !important;
+    color: var(--noir) !important;
+}

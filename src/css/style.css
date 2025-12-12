@@ -23,6 +23,14 @@
 @import "components/form.css";
 @import "components/list.css";
 
+/* Fichier : src/css/style.css */
+
+/* ... (Vos autres imports de composants) ... */
+@import "components/form.css";
+@import "components/list.css";
+@import "components/error.css";
+/* <-- AJOUTER ICI */
+
 .button {
     display: inline-block;
 
