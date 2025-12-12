@@ -35,7 +35,10 @@
     padding: 5px 40px;
     font-size: 2rem;
 
-    background-color: var(--sable);
+    /* --- MODIFICATION CRITIQUE ICI : Utiliser la nouvelle couleur de fond --- */
+    background-color: var(--beige);
+
+    /* Assurez-vous que la couleur du texte est sombre sur ce fond clair */
     color: var(--gris-texte) !important;
 
     text-transform: uppercase;

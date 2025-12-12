@@ -18,6 +18,24 @@
     margin-top: 175px;
 }
 
+.section--tickets {
+    margin-top: 75px;
+}
+
+.section--accommodation {
+    margin-top: 40px;
+}
+
+.section--access {
+    margin-top: 40px;
+}
+
+.list--access {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+}
+
 /* Décalage pour la section d'introduction (image bannière) */
 .section--intro {
     margin-top: 70px;
@@ -66,12 +84,16 @@
     padding-right: 30px;
 }
 
+.section--coordinates .section__title {
+    margin-top: 40px;
+}
+
 .section__title {
     font-family: var(--font-titles);
     font-size: 2rem;
     font-weight: 700;
     color: var(--noir);
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     line-height: 1.2;
     text-transform: none;
     margin-left: -30px;
@@ -135,7 +157,7 @@
     text-align: left;
 
     /* ESPACEMENT DU HAUT (Même distance pour les deux) */
-    margin-top: 0;
+    margin-top: 150px;
 
     /* ESPACEMENT DU BAS (Entre le titre et le texte en dessous) */
     /* Modifiez ce chiffre : cela s'appliquera aux DEUX sections */
@@ -244,4 +266,20 @@
     max-width: none !important;
     padding: 0 !important;
     margin-top: 0px;
+}
+
+.section__note {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.section__note p {
+    margin-bottom: 5px;
+    line-height: 1.2;
+    font-size: 1.4rem;
+}
+
+.section__action {
+    text-align: center;
+    margin-top: 40px;
 }

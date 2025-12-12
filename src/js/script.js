@@ -79,41 +79,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
-
-    const carousels = document.querySelectorAll('[data-carousel]');
-
-    carousels.forEach(carousel => {
-        const track = carousel.querySelector('[data-carousel-track]');
-        const prevButton = carousel.querySelector('[data-carousel-prev]');
-        const nextButton = carousel.querySelector('[data-carousel-next]');
-
-        if (!track) {
-            return;
-        }
-
-        function getScrollOffset() {
-            const firstSlide = track.querySelector('.card');
-            if (!firstSlide) {
-                return track.clientWidth;
-            }
-
-            const slideWidth = firstSlide.getBoundingClientRect().width;
-            const gapValue = getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0';
-            const gap = parseFloat(gapValue) || 0;
-            return slideWidth + gap;
-        }
-
-        function scrollTrack(direction) {
-            const offset = getScrollOffset();
-            track.scrollBy({ left: direction * offset, behavior: 'smooth' });
-        }
-
-        if (prevButton) {
-            prevButton.addEventListener('click', () => scrollTrack(-1));
-        }
-
-        if (nextButton) {
-            nextButton.addEventListener('click', () => scrollTrack(1));
-        }
-    });
 });
